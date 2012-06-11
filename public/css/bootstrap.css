@@ -4184,14 +4184,14 @@ a.badge:hover {
   color: inherit;
 }
 .card {
-  background-color: #c83025;
-  background-image: -webkit-gradient(radial, center center, 0, center center, 460, from(#9d261d), to(#c83025));
-  background-image: -webkit-radial-gradient(circle, #9d261d, #c83025);
-  background-image: -moz-radial-gradient(circle, #9d261d, #c83025);
-  background-image: -ms-radial-gradient(circle, #9d261d, #c83025);
-  background-image: -o-radial-gradient(circle, #9d261d, #c83025);
+  background-color: #e6e6e6;
+  background-image: -webkit-gradient(radial, center center, 0, center center, 460, from(#cccccc), to(#e6e6e6));
+  background-image: -webkit-radial-gradient(circle, #cccccc, #e6e6e6);
+  background-image: -moz-radial-gradient(circle, #cccccc, #e6e6e6);
+  background-image: -ms-radial-gradient(circle, #cccccc, #e6e6e6);
+  background-image: -o-radial-gradient(circle, #cccccc, #e6e6e6);
   background-repeat: no-repeat;
-  box-shadow: 0px 0px 10px #333 inset;
+  box-shadow: 0px 0px 3px #333;
   border-radius: 4px;
 }
 .pull-right {
