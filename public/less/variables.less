@@ -143,14 +143,21 @@
 @hrBorder:                @grayLighter;
 
 
+@customColorBase: #F00;
+
+@customColorNav: darken(@customColorBase,20);
+@customColorSec: @customColorBase;
+
 // Navbar
 // -------------------------
 @navbarHeight:                    40px;
 @navbarBackground:                @grayDarker;
 @navbarBackgroundHighlight:       @grayDark;
+@navbarBackground:                @customColorNav;
+@navbarBackgroundHighlight:       @customColorSec;
 
 @navbarText:                      @grayLight;
-@navbarLinkColor:                 @grayLight;
+@navbarLinkColor:                 #CCC;
 @navbarLinkColorHover:            @white;
 @navbarLinkColorActive:           @navbarLinkColorHover;
 @navbarLinkBackgroundHover:       transparent;
