@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Bootstrap
 app/bootstrap*
 
@@ -10,3 +11,10 @@ web/bundles/*
 
 # Configuration files
 app/config/parameters.ini
+=======
+phpunit.xml
+composer.lock
+composer.phar
+autoload.php
+/vendor/
+>>>>>>> 27100ba4ebc921715cfd3c129ac83837812d8369
