@@ -5,7 +5,7 @@
 
 .story { font-size: 16px; margin-top: 10px; line-height: 22px; text-align: right;}
 .bigslider{ width:849px; margin-left: 0px; height: 377px; margin-left: 30px}
-.smallslider{ width:410px; margin-left: 5px; }
+.smallslider{ width:410px; height:182px; margin-left: 5px; }
 
 .card {
 	
@@ -27,7 +27,7 @@
 .card span.zona { font-size: 14px; clear: both; margin-right:  42px; text-align: center; }
 
 
-.background {
+.background,.background-mini {
 	background-image: url(../assets/background1.png);
 	background-repeat: repeat-y; 
 	background-size: 100%;
@@ -40,6 +40,10 @@
 	position: absolute;
 	z-index: -1;
 	box-shadow: 0px 0px 10px black inset;
+}
+.background-mini {
+	height: 300px;
+	margin-left: -20px;
 }
 
 .row .span2 h2 {
