@@ -1,137 +1,147 @@
-[Twitter Bootstrap](http://twitter.github.com/bootstrap) [![Build Status](https://secure.travis-ci.org/twitter/bootstrap.png)](http://travis-ci.org/twitter/bootstrap)
-=================
+Symfony Standard Edition
+========================
 
-Bootstrap provides simple and flexible HTML, CSS, and Javascript for popular user interface components and interactions. In other words, it's a front-end toolkit for faster, more beautiful web development. It's created and maintained by [Mark Otto](http://twitter.com/mdo) and [Jacob Thornton](http://twitter.com/fat) at Twitter.
+Welcome to the Symfony Standard Edition - a fully-functional Symfony2
+application that you can use as the skeleton for your new app. If you want
+to learn more about the features included, see the "What's Inside?" section.
 
-To get started, checkout http://twitter.github.com/bootstrap!
+This document contains information on how to download and start using Symfony.
+For a more detailed explanation, see the
+[Installation chapter](http://symfony.com/doc/current/book/installation.html)
+of the Symfony Documentation.
 
+1) Download the Standard Edition
+--------------------------------
 
+If you've already downloaded the standard edition, and unpacked it somewhere
+within your web root directory, then move on to the "Installation" section.
 
-Quick start
------------
+To download the standard edition, you have two options:
 
-Clone the repo, `git clone git://github.com/twitter/bootstrap.git`, or [download the latest release](https://github.com/twitter/bootstrap/zipball/master).
+### Download an archive file (*recommended*)
 
+The easiest way to get started is to download an archive of the standard edition
+(http://symfony.com/download). Unpack it somewhere under your web server root
+directory and you're done. The web root is wherever your web server (e.g. Apache)
+looks when you access `http://localhost` in a browser.
 
+### Clone the git Repository
 
-Versioning
-----------
+We highly recommend that you download the packaged version of this distribution.
+But if you still want to use Git, you are on your own.
 
-For transparency and insight into our release cycle, and for striving to maintain backward compatibility, Bootstrap will be maintained under the Semantic Versioning guidelines as much as possible.
+Run the following commands:
 
-Releases will be numbered with the follow format:
+    git clone http://github.com/symfony/symfony-standard.git
+    cd symfony-standard
+    rm -rf .git
 
-`<major>.<minor>.<patch>`
-
-And constructed with the following guidelines:
-
-* Breaking backward compatibility bumps the major (and resets the minor and patch)
-* New additions without breaking backward compatibility bumps the minor (and resets the patch)
-* Bug fixes and misc changes bumps the patch
-
-For more information on SemVer, please visit http://semver.org/.
-
-
-
-Bug tracker
------------
-
-Have a bug? Please create an issue here on GitHub! Also, when filing please make sure you're familiar with [necolas's guidelines](https://github.com/necolas/issue-guidelines). thanks! <3
-
-https://github.com/twitter/bootstrap/issues
-
-
-
-Twitter account
+2) Installation
 ---------------
 
-Keep up to date on announcements and more by following Bootstrap on Twitter, [@TwBootstrap](http://twitter.com/TwBootstrap).
+Once you've downloaded the standard edition, installation is easy, and basically
+involves making sure your system is ready for Symfony.
 
+### a) Check your System Configuration
 
+Before you begin, make sure that your local system is properly configured
+for Symfony. To do this, execute the following:
 
-Blog
-----
+    php app/check.php
 
-Read more detailed announcements, discussions, and more on [The Official Twitter Bootstrap Blog](http://blog.getbootstrap.com).
+If you get any warnings or recommendations, fix these now before moving on.
 
+### b) Install the Vendor Libraries
 
+If you downloaded the archive "without vendors" or installed via git, then
+you need to download all of the necessary vendor libraries. If you're not
+sure if you need to do this, check to see if you have a ``vendor/`` directory.
+If you don't, or if that directory is empty, run the following:
 
-Mailing list
-------------
+    php bin/vendors install
 
-Have a question? Ask on our mailing list!
+Note that you **must** have git installed and be able to execute the `git`
+command to execute this script. If you don't have git available, either install
+it or download Symfony with the vendor libraries already included.
 
-twitter-bootstrap@googlegroups.com
+### c) Access the Application via the Browser
 
-http://groups.google.com/group/twitter-bootstrap
+Congratulations! You're now ready to use Symfony. If you've unzipped Symfony
+in the web root of your computer, then you should be able to access the
+web version of the Symfony requirements check via:
 
+    http://localhost/Symfony/web/config.php
 
+If everything looks good, click the "Bypass configuration and go to the Welcome page"
+link to load up your first Symfony page.
 
-IRC
----
+You can also use a web-based configurator by clicking on the "Configure your
+Symfony Application online" link of the ``config.php`` page.
 
-Server: irc.freenode.net
+To see a real-live Symfony page in action, access the following page:
 
-Channel: ##twitter-bootstrap (the double ## is not a typo)
+    web/app_dev.php/demo/hello/Fabien
 
+3) Learn about Symfony!
+-----------------------
 
+This distribution is meant to be the starting point for your application,
+but it also contains some sample code that you can learn from and play with.
 
-Developers
-----------
+A great way to start learning Symfony is via the [Quick Tour](http://symfony.com/doc/current/quick_tour/the_big_picture.html),
+which will take you through all the basic features of Symfony2 and the test
+pages that are available in the standard edition.
 
-We have included a makefile with convenience methods for working with the Bootstrap library.
+Once you're feeling good, you can move onto reading the official
+[Symfony2 book](http://symfony.com/doc/current/).
 
-+ **dependencies**
-Our makefile depends on you having recess, uglify.js, and jshint installed. To install, just run the following command in npm:
+Using this Edition as the Base of your Application
+--------------------------------------------------
 
-```
-$ npm install recess uglify-js jshint -g
-```
+Since the standard edition is fully-configured and comes with some examples,
+you'll need to make a few changes before using it to build your application.
 
-+ **build** - `make`
-Runs the recess compiler to rebuild the `/less` files and compiles the docs pages. Requires recess and uglify-js. <a href="http://twitter.github.com/bootstrap/less.html#compiling">Read more in our docs &raquo;</a>
+The distribution is configured with the following defaults:
 
-+ **test** - `make test`
-Runs jshint and qunit tests headlessly in phantom js (used for ci). Depends on having phatomjs installed.
+* Twig is the only configured template engine;
+* Doctrine ORM/DBAL is configured;
+* Swiftmailer is configured;
+* Annotations for everything are enabled.
 
-+ **watch** - `make watch`
-This is a convenience method for watching just Less files and automatically building them whenever you save. Requires the Watchr gem.
+A default bundle, ``AcmeDemoBundle``, shows you Symfony2 in action. After
+playing with it, you can remove it by following these steps:
 
+* delete the ``src/Acme`` directory;
+* remove the routing entries referencing AcmeBundle in ``app/config/routing_dev.yml``;
+* remove the AcmeBundle from the registered bundles in ``app/AppKernel.php``;
 
-Contributing
-------------
+What's inside?
+---------------
+The Symfony Standard Edition comes pre-configured with the following bundles:
 
-Please make all pull requests against wip-* branches. Also, if your unit test contains javascript patches or features - you must include relevant unit tests. Thanks!
+* **FrameworkBundle** - The core Symfony framework bundle
+* **SensioFrameworkExtraBundle** - Adds several enhancements, including template
+  and routing annotation capability ([documentation](http://symfony.com/doc/current/bundles/SensioFrameworkExtraBundle/index.html))
+* **DoctrineBundle** - Adds support for the Doctrine ORM
+  ([documentation](http://symfony.com/doc/current/book/doctrine.html))
+* **TwigBundle** - Adds support for the Twig templating engine
+  ([documentation](http://symfony.com/doc/current/book/templating.html))
+* **SecurityBundle** - Adds security by integrating Symfony's security component
+  ([documentation](http://symfony.com/doc/current/book/security.html))
+* **SwiftmailerBundle** - Adds support for Swiftmailer, a library for sending emails
+  ([documentation](http://symfony.com/doc/2.0/cookbook/email.html))
+* **MonologBundle** - Adds support for Monolog, a logging library
+  ([documentation](http://symfony.com/doc/2.0/cookbook/logging/monolog.html))
+* **AsseticBundle** - Adds support for Assetic, an asset processing library
+  ([documentation](http://symfony.com/doc/2.0/cookbook/assetic/asset_management.html))
+* **JMSSecurityExtraBundle** - Allows security to be added via annotations
+  ([documentation](http://symfony.com/doc/current/bundles/JMSSecurityExtraBundle/index.html))
+* **WebProfilerBundle** (in dev/test env) - Adds profiling functionality and
+  the web debug toolbar
+* **SensioDistributionBundle** (in dev/test env) - Adds functionality for configuring
+  and working with Symfony distributions
+* **SensioGeneratorBundle** (in dev/test env) - Adds code generation capabilities
+  ([documentation](http://symfony.com/doc/current/bundles/SensioGeneratorBundle/index.html))
+* **AcmeDemoBundle** (in dev/test env) - A demo bundle with some example code
 
-
-Authors
--------
-
-**Mark Otto**
-
-+ http://twitter.com/mdo
-+ http://github.com/markdotto
-
-**Jacob Thornton**
-
-+ http://twitter.com/fat
-+ http://github.com/fat
-
-
-
-Copyright and license
----------------------
-
-Copyright 2012 Twitter, Inc.
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this work except in compliance with the License.
-You may obtain a copy of the License in the LICENSE file, or at:
-
-   http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
+Enjoy!
