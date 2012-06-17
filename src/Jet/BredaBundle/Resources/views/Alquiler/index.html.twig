@@ -1,0 +1,46 @@
+{% extends 'JetBredaBundle::layoutAdmin.html.twig'%}
+
+{% set active = "alquiler"%}
+
+{% block container%}
+<h1>Alquiler list</h1>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Identificador</th>
+            <th>Poblacion</th>
+            <th>Direccion</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td><a href="{{ path('admin_alquiler_show', { 'id': entity.id }) }}">{{ entity.id }}/{{ entity.postal }}</a></td>
+            <td>{{ entity.poblacion }} ({{ entity.postal}})</td>
+            <td>{{ entity.direccion }}</td>
+
+
+
+            <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('admin_alquiler_show', { 'id': entity.id }) }}">Expander información y galeria</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('admin_alquiler_edit', { 'id': entity.id }) }}">editar</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<hr class="soften">
+
+        <a href="{{ path('admin_alquiler_new') }}" class="btn btn-inverse">
+           Crear un nuevo alquiler
+        </a>
+<div style="margin-top: 40px"></div>
+{% endblock %}

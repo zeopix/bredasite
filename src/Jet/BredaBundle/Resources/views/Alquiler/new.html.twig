@@ -1,0 +1,40 @@
+{% extends 'JetBredaBundle::layoutAdmin.html.twig'%}
+{% block extra %}
+<link href="{{ asset('bundles/jetbreda/css/jquery.cleditor.css')}}" rel="stylesheet">
+<script src="{{ asset('bundles/jetbreda/js/jquery.cleditor.js') }}"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#jet_bredabundle_alquilertype_extra").cleditor();
+    });
+
+    $(document).ready(function () {
+        $("#jet_bredabundle_alquilertype_descipcion").cleditor();
+    });
+
+
+</script>
+
+{% endblock %}
+{% set active = "alquiler"%}
+
+{% block container%}
+
+<h1>Creación de alquiler</h1>
+
+<form action="{{ path('admin_alquiler_create') }}" method="post" {{ form_enctype(form) }}>
+    {{ form_widget(form) }}
+    <p>
+        <button type="submit">Create</button>
+    </p>
+
+</form>
+
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('admin_alquiler') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+        {% endblock %}

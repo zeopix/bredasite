@@ -1,0 +1,14 @@
+{% extends "::base.html.twig" %}
+{% block background %}{% endblock %}
+{% block menuHeader %}
+<li {% if active == 'alquiler' %}class="active"{% endif %}><a href="{{ path('admin_alquiler')}}">Alquileres</a></li>
+
+{% endblock %}
+
+{% block secondHeader %}
+<div class="row" style="margin-top: 40px; margin-bottom: 50px">
+    <div class="span12">
+        <h1>Administrador</h1>
+    </div>
+</div>
+{% endblock %}

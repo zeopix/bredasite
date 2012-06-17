@@ -1,4 +1,4 @@
-{% extends '::base.html.twig'%}
+{% extends 'JetBredaBundle::layoutAdmin.html.twig'%}
 
 {% set active = "alquiler"%}
 
@@ -29,12 +29,9 @@
         {% for foto in entity.fotos %}
         <div class="span2 well">
             <p><img src="{{ foto.webPath }}" title="{{ entity.poblacion }}" width="200px"></p>
-
-            <p>
-                <small>{{ foto.descripcion }}</small>
-            </p>
-            <p><a href="{{ path('admin_alquiler_deleteFoto', {'id': foto.id})}}" class="btn btn-danger">Eliminar
-                imágen</a></p>
+            
+            <p><small>{{ foto.descripcion }}</small></p>
+            <p><a href="{{ path('admin_alquiler_deleteFoto', {'id': foto.id})}}" class="btn btn-danger">Eliminar imágen</a></p>
         </div>
         {% endfor %}
         {% else %}
@@ -45,6 +42,29 @@
     </div>
 
 </div>
+<div class="row" style="margin-top: 20px; margin-bottom: 20px">
+    <div class="span8">
+        <form method="post" enctype="multipart/form-data">
+            {{ form_widget(fotoForm)}}
+            <input type="submit" class="btn btn-success" value="Añadir imágen">
+        </form>
 
+
+    </div>
+</div>
+
+
+<a href="{{ path('admin_alquiler') }}" class="btn">
+    Volver a la lista
+</a>
+
+<a href="{{ path('admin_alquiler_edit', { 'id': entity.id }) }}" class="btn btn-info">
+    Editar
+</a>
+
+<form action="{{ path('admin_alquiler_delete', { 'id': entity.id }) }}" method="post">
+    {{ form_widget(delete_form) }}
+    <button type="submit" class="btn btn-danger">Borrar</button>
+</form>
 
         {% endblock %}

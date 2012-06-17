@@ -203,28 +203,4 @@ class Alquiler
     {
         return $this->tipo;
     }
-    public function __construct()
-    {
-        $this->fotos = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-    
-    /**
-     * Add fotos
-     *
-     * @param Jet\BredaBundle\Entity\Foto $fotos
-     */
-    public function addFoto(\Jet\BredaBundle\Entity\Foto $fotos)
-    {
-        $this->fotos[] = $fotos;
-    }
-
-    /**
-     * Get fotos
-     *
-     * @return Doctrine\Common\Collections\Collection 
-     */
-    public function getFotos()
-    {
-        return $this->fotos;
-    }
 }

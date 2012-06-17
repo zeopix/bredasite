@@ -1,0 +1,54 @@
+{% extends '::base.html.twig'%}
+{% set active = 'contacto' %}
+{% block container %}
+
+<form class="form-horizontal" style="margin-top: 60px">
+
+    <fieldset>
+        <legend>Formulario de contacto</legend>
+        <div class="control-group">
+            <label class="control-label" for="nombre">Tu nombre</label>
+
+            <div class="controls">
+                <input type="text" class="input-xlarge" id="nombre" name="nombre" required="true">
+
+                <p class="help-block">Escribre tu nombre y apellidos</p>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label" for="email">Tu email</label>
+
+            <div class="controls">
+                <input type="text" class="input-xlarge" id="email" name="email" required="true">
+
+                <p class="help-block">Escribre tu correo electrónico</p>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label" for="nombre">Tu teléfono</label>
+
+            <div class="controls">
+                <input type="text" class="input-xlarge" id="telefono" name="telefono" required="true">
+
+                <p class="help-block">Escribre tu teléfono</p>
+            </div>
+        </div>
+
+
+        <div class="control-group">
+            <label class="control-label" for="textarea">Duda</label>
+
+            <div class="controls">
+                <textarea class="input-xlarge" id="textarea" rows="3" required="true"></textarea>
+            </div>
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Enviar formulario</button>
+
+        </div>
+    </fieldset>
+</form>
+
+        {% endblock%}

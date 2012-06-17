@@ -18,40 +18,58 @@ class DefaultController extends Controller
     }
 
     /**
-         * @Route("/Alquiler", name="alquiler")
-         * @Template()
-         */
-        public function alquilerAction()
-        {
-            return array();
-        }
+     * @Route("/Alquiler/{id}", name="alquiler")
+     * @Template()
+     */
+    public function alquilerAction($id)
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+        $alquiler = $em->getRepository('JetBredaBundle:Alquiler')->find($id);
+
+        return array('entity' => $alquiler);
+
+    }
 
     /**
-         * @Route("/Proyectos-Realizados", name="proyectos")
-         * @Template()
-         */
-        public function proyectosAction()
-        {
-            return array();
-        }
+     * @Route("/Alquileres", name="alquileres")
+     * @Template()
+     */
+    public function alquileresAction()
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+
+
+        $alquileres = $em->getRepository('JetBredaBundle:Alquiler')->findAll();
+
+        return array('Alquileres' => $alquileres);
+    }
 
     /**
-         * @Route("/Clientes", name="clientes")
-         * @Template()
-         */
-        public function clientesAction()
-        {
-            return array();
-        }
+     * @Route("/Contacto", name="contacto")
+     * @Template()
+     */
+    public function contactoAction()
+    {
+        return array();
+    }
 
     /**
-         * @Route("/Nosotros", name="nosotros")
-         * @Template()
-         */
-        public function nosotrosAction()
-        {
-            return array();
-        }
+     * @Route("/Clientes", name="clientes")
+     * @Template()
+     */
+    public function clientesAction()
+    {
+        return array();
+    }
+
+    /**
+     * @Route("/Nosotros", name="nosotros")
+     * @Template()
+     */
+    public function nosotrosAction()
+    {
+        return array();
+    }
 
 
 }
