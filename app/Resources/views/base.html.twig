@@ -51,10 +51,14 @@
 		})
 	</script>
 
+      {% block extra %}
+      {% endblock %}
    </head>
 
   <body>
+  {% block background %}
   	<div class="background"></div>
+  {% endblock %}
 	<div class="container">
 	<img src="{{ asset('bundles/jetbreda/assets/logo.png')}}" width="300px">
     <div class="navbar">
@@ -67,11 +71,14 @@
           </a>
           <div class="nav-collapse">
             <ul class="nav">
+                {% block menuHeader %}
               <li {% if active == 'index' %}class="active"{% endif %}><a href="{{ path('index')}}">Destacados</a></li>
-              <li {% if active == 'alquiler' %}class="active"{% endif %}><a href="{{ path('alquiler')}}">Alquiler</a></li>
-              <li {% if active == 'proyectos' %}class="active"{% endif %}><a href="{{ path('proyectos')}}">Proyectos realizados</a></li>
+              <li {% if active == 'alquiler' %}class="active"{% endif %}><a href="{{ path('alquileres')}}">Alquileres</a></li>
               <li {% if active == 'clientes' %}class="active"{% endif %}><a href="{{ path('clientes')}}">Nuestros Clientes</a></li>
               <li {% if active == 'nosotros' %}class="active"{% endif %}><a href="{{ path('nosotros')}}">Sobre Nosotros</a></li>
+                <li {% if active == 'contacto' %}class="active"{% endif %}><a href="{{ path('contacto')}}">Contacto</a></li>
+
+                {% endblock %}
             </ul>
           </div><!--/.nav-collapse -->
         </div>

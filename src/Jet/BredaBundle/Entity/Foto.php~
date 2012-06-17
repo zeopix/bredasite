@@ -1,0 +1,137 @@
+<?php
+
+namespace Jet\BredaBundle\Entity;
+
+use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Jet\BredaBundle\Entity\Foto
+ *
+ * @ORM\Table()
+ * @ORM\Entity
+ */
+class Foto
+{
+    /**
+     * @var integer $id
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string $descripcion
+     *
+     * @ORM\Column(name="descripcion", type="string", length=255)
+     */
+    private $descripcion;
+
+    //RELATIONS
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Alquiler", inversedBy="fotos")
+     * @ORM\JoinColumn(name="alquiler_id", referencedColumnName="id")
+     */
+    private $alquiler;
+
+
+    //IMAGEN
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    public $path = "noimage.png";
+
+    /**
+     * @Assert\File(maxSize="6000000")
+     */
+    public $file;
+
+    public function getAbsolutePath()
+    {
+        return null === $this->path ? null : $this->getUploadRootDir() . '/' . $this->path;
+    }
+
+    public function getWebPath()
+    {
+        $path = null;
+        if (file_exists($this->getAbsolutePath())) {
+            $path = $this->path;
+        }
+        else {
+            $path = "nouser.png";
+        }
+        return null === $this->path ? null : $this->getUploadDir() . '/' . $path;
+    }
+
+    protected function getUploadRootDir()
+    {
+        // the absolute directory path where uploaded documents should be saved
+        return __DIR__ . '/../../../../web/' . $this->getUploadDir();
+    }
+
+    protected function getUploadDir()
+    {
+        // get rid of the __DIR__ so it doesn't screw when displaying uploaded doc/image in the view.
+        return 'images';
+    }
+
+
+    public function upload()
+    {
+        if (null === $this->file) {
+            return;
+        }
+
+        // if there is an error when moving the file, an exception will
+        // be automatically thrown by move(). This will properly prevent
+        // the entity from being persisted to the database on error
+        $this->path = uniqid() . '.' . $this->file->guessExtension();
+        $this->file->move($this->getUploadRootDir(), $this->path);
+
+
+        unset($this->file);
+    }
+
+
+    public function removeUpload()
+    {
+        if ($file = $this->getAbsolutePath()) {
+            unlink($file);
+        }
+    }
+
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set descripcion
+     *
+     * @param string $descripcion
+     */
+    public function setDescripcion($descripcion)
+    {
+        $this->descripcion = $descripcion;
+    }
+
+    /**
+     * Get descripcion
+     *
+     * @return string
+     */
+    public function getDescripcion()
+    {
+        return $this->descripcion;
+    }
+}

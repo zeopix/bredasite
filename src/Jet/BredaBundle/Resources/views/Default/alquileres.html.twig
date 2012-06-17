@@ -1,0 +1,16 @@
+{% extends '::base.html.twig'%}
+        {% set active = 'alquiler' %}
+{% block container %}
+<div class="row">
+    <h2>Alquileres destacados</h2>
+    {% for alq in  Alquileres %}
+        <div class="span2 well">
+            <a href="{{ path('alquiler', {'id': alq.id}) }}"><img src="{{ asset(alq.fotos.0.webPath)}}" width="200px"></a>
+            <p>{{ alq.poblacion }} {{ alq.postal }} etc</p>
+        </div>
+    {% else %}
+    <b>No tenemos alquileres disponibles</b>
+    {% endfor %}
+</div>
+
+{% endblock %}
