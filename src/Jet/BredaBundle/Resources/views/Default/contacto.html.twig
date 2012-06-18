@@ -1,44 +1,45 @@
 {% extends '::base.html.twig'%}
 {% set active = 'contacto' %}
 {% block container %}
-
-<form class="form-horizontal" style="margin-top: 60px">
+<div class="row">
+<div class="span8 offset1">
+<form class="form-horizontal" style="margin-top: 20px">
 
     <fieldset>
         <legend>Formulario de contacto</legend>
         <div class="control-group">
-            <label class="control-label" for="nombre">Tu nombre</label>
+            <label class="control-label" for="nombre">Persona de Contacto</label>
 
             <div class="controls">
                 <input type="text" class="input-xlarge" id="nombre" name="nombre" required="true">
 
-                <p class="help-block">Escribre tu nombre y apellidos</p>
+                <p class="help-block"><i>Obligatorio</i> (Nombre y Apellidos)</p>
             </div>
         </div>
 
         <div class="control-group">
-            <label class="control-label" for="email">Tu email</label>
+            <label class="control-label" for="email">Correo electrónico</label>
 
             <div class="controls">
                 <input type="text" class="input-xlarge" id="email" name="email" required="true">
 
-                <p class="help-block">Escribre tu correo electrónico</p>
+                <p class="help-block"><i>Obligatorio</i></p>
             </div>
         </div>
 
         <div class="control-group">
-            <label class="control-label" for="nombre">Tu teléfono</label>
+            <label class="control-label" for="nombre">Teléfono de contacto</label>
 
             <div class="controls">
                 <input type="text" class="input-xlarge" id="telefono" name="telefono" required="true">
 
-                <p class="help-block">Escribre tu teléfono</p>
+                <p class="help-block"><i>Obligatorio</i></p>
             </div>
         </div>
 
 
         <div class="control-group">
-            <label class="control-label" for="textarea">Duda</label>
+            <label class="control-label" for="textarea">Consulta</label>
 
             <div class="controls">
                 <textarea class="input-xlarge" id="textarea" rows="3" required="true"></textarea>
@@ -50,5 +51,18 @@
         </div>
     </fieldset>
 </form>
-
+</div>
+<div class="span2" style="padding: 30px; padding-top: 50px">
+	    		<img src="{{ asset('bundles/jetbreda/img/breda.png') }}">
+<b>Dirección:</b>
+<p class="pull-right">C\ Lorem Ipsut 12, 3º</p>
+<div style="clear:both; padding-top: 10px;"></div>
+<b>Horario comercial:</b> 
+<p class="pull-right">9:00h - 13:30h</p>
+<div style="clear:both; padding-top: 10px;"></div>
+<b>Telefono Fijo:</b> 
+<p class="pull-right">931 234 567</p>
+<div style="clear:both; padding-top: 10px;"></div>
+</div>
+</div>
         {% endblock%}

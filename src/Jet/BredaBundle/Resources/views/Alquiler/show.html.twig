@@ -28,7 +28,7 @@
         {% if entity.fotos is not empty %}
         {% for foto in entity.fotos %}
         <div class="span2 well">
-            <p><img src="{{ foto.webPath }}" title="{{ entity.poblacion }}" width="200px"></p>
+            <p><img src="{{ asset(foto.webPath) }}" title="{{ entity.poblacion }}" width="200px"></p>
             
             <p><small>{{ foto.descripcion }}</small></p>
             <p><a href="{{ path('admin_alquiler_deleteFoto', {'id': foto.id})}}" class="btn btn-danger">Eliminar imágen</a></p>
