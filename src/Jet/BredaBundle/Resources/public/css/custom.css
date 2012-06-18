@@ -51,3 +51,6 @@
 	color: #EEE;
 	text-shadow: 1px 1px 0px black;
 }
+
+.span4 .image { float:left; width: 105px; float: left;}
+.span4 .content { float:left; width: 160px; float: left; margin: 10px;}

@@ -2,15 +2,21 @@
         {% set active = 'alquiler' %}
 {% block container %}
 <div class="row">
-    <h2>Alquileres destacados</h2>
+	<div class="span10 offset1">
     {% for alq in  Alquileres %}
-        <div class="span2 well">
-            <a href="{{ path('alquiler', {'id': alq.id}) }}"><img src="{{ asset(alq.fotos.0.webPath)}}" width="200px"></a>
-            <p>{{ alq.poblacion }} {{ alq.postal }} etc</p>
+		<div class="span4">
+			<div class="image">
+ 	           <a href="{{ path('alquiler', {'id': alq.id}) }}"><img src="{{ asset(alq.fotos.0.webPath)}}" width="200px"></a>
+ 	        </div>
+ 	        <div class="content">
+ 	        	<h5>Alquiler de nave industrial en {{ alq.poblacion }}</h5>
+	            <p> {{ alq.descipcion|truncate(30) }}</p>
+ 	        </div>
         </div>
     {% else %}
     <b>No tenemos alquileres disponibles</b>
     {% endfor %}
+    </div>
 </div>
 
 {% endblock %}
