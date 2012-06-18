@@ -3,40 +3,65 @@
 {% set active = "alquiler"%}
 
 {% block container%}
-<h1>Alquiler en {{ entity.direccion }}, {{ entity.poblacion }}</h1>
-
 <div class="row">
-    <div class="span4 well">
-        <h3>{{ entity.tipo }} en {{ entity.poblacion }}</h3>
-        <h4>{{ entity.direccion }}</h4> <h6>{{ entity.postal }}</h6>
-        <hr class="soften">
-        <h5>Descripción</h5>
-        {{ entity.descipcion|raw }}
-    </div>
-
-    <div class="span4 well">
-        <h5>Parámetros adicionales</h5>
-        {{ entity.extra|raw}}
-    </div>
+	<div class="span10 offset1">
+		<h1>{{ entity.titulo }}</h1>
+		<hr>
+		<div class="span7">
+		<h6>Descripción</h6>
+		{{ entity.descipcion|raw }}<br>
+		{% if entity.extra is not null %}<br><br>
+		<h6>Información Adicional</h6>
+		{{ entity.extra|raw }}
+		{% endif %}
+		</div>
+		<div class="span2">
+		<h6>Detalles</h6>
+		<b>Superficie:</b> {{ entity.superficie }}<br>
+		<b>Población:</b> {{ entity.poblacion }}, {{ entity.postal }}<br>
+		<b>Dirección:</b> {{ entity.direccion }}
+		<b>Tipo:</b> {{ entity.tipo }}<br>
+		<b>Mapa:</b>
+		</div>
+		
+	</div>
 </div>
-
 
 <div class="row" style="margin-top: 40px;">
 
-    <div class="span8">
-        <h2>Galería</h2>
+    <div class="span10 offset1">
+        <h3>Galería de fotos</h3><hr>
         {% if entity.fotos is not empty %}
         {% for foto in entity.fotos %}
-        <div class="span2 well">
-            <p><img src="{{ foto.webPath }}" title="{{ entity.poblacion }}" width="100px"></p>
-
-            <p>
-                <small>{{ foto.descripcion }}</small>
-            </p>
+            <img src="{{ asset(foto.webPath) }}" title="{{ entity.poblacion }}" height="100px">
+			{#
             <p><a href="{{ path('admin_alquiler_deleteFoto', {'id': foto.id})}}" class="btn btn-danger">Eliminar
                 imágen</a></p>
-        </div>
+#}
         {% endfor %}
+        <br><br>
+        
+         <div id="myCarousel2" class="carousel slide">
+            <div class="carousel-inner">
+        {% for foto in entity.fotos %}
+   
+              <div class="item">
+                <img src="{{ asset(foto.webPath) }}" alt="">
+                <div class="carousel-caption">
+                  <h4>{{ foto.descripcion }}</h4>
+                </div>
+              </div>
+                      {% endfor %}
+
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+          </div>
+          
+          </div>
+          
+          
+        
+        
         {% else %}
         <div class="alert alert-info">
             <strong>Información!</strong> No has añadido ninguna foto
@@ -45,6 +70,10 @@
     </div>
 
 </div>
-
+	<br>
+	<center>
+	<a class="btn btn-primary" href="{{ path('alquileres') }}">Volver Atrás</a>
+	</center>
+<div style="padding-top: 40px;"></div>
 
         {% endblock %}

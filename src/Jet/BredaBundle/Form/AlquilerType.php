@@ -16,6 +16,14 @@ class AlquilerType extends AbstractType
             'choices' => array('piso' => 'Piso', 'despacho' => 'Despacho', 'nave' => 'Nave industrial' )
                   ))
 
+            ->add('titulo', 'text', array(
+            'label' => 'Título'
+        ))
+
+            ->add('superficie', null, array(
+            'label' => 'Superficie'
+        ))
+
             ->add('poblacion', 'text', array(
             'label' => 'Población'
         ))

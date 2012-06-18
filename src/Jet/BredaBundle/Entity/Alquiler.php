@@ -24,6 +24,13 @@ class Alquiler
     /**
      * @var text $descipcion
      *
+     * @ORM\Column(name="titulo", type="text")
+     */
+    private $titulo;
+
+    /**
+     * @var text $descipcion
+     *
      * @ORM\Column(name="descipcion", type="text")
      */
     private $descipcion;
@@ -55,6 +62,13 @@ class Alquiler
      * @ORM\Column(name="extra", type="text")
      */
     private $extra;
+
+    /**
+     * @var text $superficie
+     *
+     * @ORM\Column(name="superficie", type="integer")
+     */
+    private $superficie;
 
     /**
      * @var text $tipo
@@ -226,5 +240,50 @@ class Alquiler
     public function getFotos()
     {
         return $this->fotos;
+    }
+
+    /**
+     * Set titulo
+     *
+     * @param text $titulo
+     */
+    public function setTitulo($titulo)
+    {
+        $this->titulo = $titulo;
+    }
+
+    /**
+     * Get titulo
+     *
+     * @return text 
+     */
+    public function getTitulo()
+    {
+        return $this->titulo;
+    }
+    
+    public function numFotos()
+    {
+    	return count($this->fotos);
+    }
+
+    /**
+     * Set superficie
+     *
+     * @param integer $superficie
+     */
+    public function setSuperficie($superficie)
+    {
+        $this->superficie = $superficie;
+    }
+
+    /**
+     * Get superficie
+     *
+     * @return integer 
+     */
+    public function getSuperficie()
+    {
+        return $this->superficie;
     }
 }
