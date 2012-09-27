@@ -176,7 +176,7 @@ class AlquilerController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('admin_alquiler_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('admin_alquiler_show', array('id' => $id)));
         }
 
         return array(

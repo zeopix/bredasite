@@ -11,39 +11,43 @@ class AlquilerType extends AbstractType
     {
         $builder
 
-            ->add('tipo','choice',array(
-                      'label' => 'Tipo de inmueble',
-            'choices' => array('piso' => 'Piso', 'despacho' => 'Despacho', 'nave' => 'Nave industrial' )
-                  ))
+            ->add('tipo', 'choice', array(
+            'label' => 'Tipo de inmueble',
+            'choices' => array('piso' => 'Piso', 'despacho' => 'Despacho', 'nave' => 'Nave industrial')
+        ))
 
             ->add('titulo', 'text', array(
             'label' => 'Título'
         ))
 
             ->add('superficie', null, array(
-            'label' => 'Superficie'
+            'label' => 'Superficie',
+            'attr' => array('class' => 'input-small')
         ))
 
             ->add('poblacion', 'text', array(
             'label' => 'Población'
         ))
             ->add('postal', 'text', array(
-                     'label' => 'Código postal'
-                 ))
+            'label' => 'Código postal'
+        ))
             ->add('direccion', 'text', array(
-                      'label' => 'Dirección del inmueble'
-                  ))
-            ->add('descipcion','textarea',array(
+            'label' => 'Dirección del inmueble'
+        ))
+            ->add('destacado', 'choice', array(
+            'label' => '¿Se trata de un alquiler destado?',
+            'choices' => array(0 => 'No, no quiero destacar este alquiler', 1 => 'Sí se trata de un alquiler destacado'),
+
+        ))
+            ->add('descipcion', 'textarea', array(
             'label' => 'Descripción'
         ))
-
 
 
             ->add('extra', 'textarea', array(
             'label' => 'Parámetros adicionales',
             'required' => false,
-        ))
-        ;
+        ));
     }
 
     public function getName()

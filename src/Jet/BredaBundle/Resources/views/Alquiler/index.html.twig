@@ -3,7 +3,9 @@
 {% set active = "alquiler"%}
 
 {% block container%}
+<h1>Lista de alquileres</h1>
 
+<hr class="soften">
         <a href="{{ path('admin_alquiler_new') }}" class="btn">
            Añadir Producto
         </a>
@@ -31,6 +33,6 @@
 	</div><br><br>
 	{% endfor %}
 </div>
-<h1>Alquiler list</h1>
+
 
 {% endblock %}

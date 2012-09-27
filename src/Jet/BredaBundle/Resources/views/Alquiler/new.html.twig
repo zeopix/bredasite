@@ -1,6 +1,7 @@
 {% extends 'JetBredaBundle::layoutAdmin.html.twig'%}
 {% block extra %}
 <link href="{{ asset('bundles/jetbreda/css/jquery.cleditor.css')}}" rel="stylesheet">
+<link href="{{ asset('bundles/jetbreda/css/form_custom.css')}}" rel="stylesheet">
 <script src="{{ asset('bundles/jetbreda/js/jquery.cleditor.js') }}"></script>
 <script type="text/javascript">
     $(document).ready(function () {
@@ -18,23 +19,67 @@
 {% set active = "alquiler"%}
 
 {% block container%}
-
+<div class="alert alert-info">
+    <strong>Tips!</strong>
+    <ul>
+        <li>Rellene todos los campos</li>
+        <li>Las imágenes se añaden una vez complete este formulario</li>
+    </ul>
+</div>
 <h1>Creación de alquiler</h1>
 
 <form action="{{ path('admin_alquiler_create') }}" method="post" {{ form_enctype(form) }}>
+
+    <div class="row">
+
+        <div class="span3">
+
+            {{ form_row(form.tipo)}}
+            {{ form_row(form.titulo)}}
+            {{ form_row(form.superficie)}}
+            {{ form_row(form.destacado)}}
+        </div>
+
+        <div class="span3">
+            {{ form_row(form.poblacion)}}
+            {{ form_row(form.postal)}}
+            {{ form_row(form.direccion)}}
+        </div>
+
+        <div class="span5">
+            {{ form_row(form.extra)}}
+        </div>
+    </div>
+<hr class="soften">
+
+    <div class="row">
+
+        <div class="span6">
+            {{ form_row(form.descipcion)}}
+
+        </div>
+
+        <div class="span5">
+            <ul class="record_actions controlsList">
+
+                <li>
+                    <button type="submit" class="btn btn-success" style="margin-top: 15px">Generar el registro del nuevo alquiler
+                            </button>
+                </li>
+                <li>
+                    <a href="{{ path('admin_alquiler') }}" class="btn btn-info">
+                        Volver a la lista
+                    </a>
+                </li>
+
+
+            </ul>
+        </div>
+    </div>
     {{ form_widget(form) }}
-    <p>
-        <button type="submit">Create</button>
-    </p>
 
 </form>
 
 
-<ul class="record_actions">
-    <li>
-        <a href="{{ path('admin_alquiler') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+
         {% endblock %}

@@ -14,7 +14,10 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        return array();
+        $em = $this->getDoctrine()->getEntityManager();
+        $destacados = $em->getRepository('JetBredaBundle:Alquiler')->findByDestacado(true);
+
+        return array('destacados' => $destacados);
     }
 
     /**
