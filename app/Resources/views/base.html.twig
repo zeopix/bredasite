@@ -108,7 +108,7 @@
             <span class="desc">{{ d.descipcion|truncate(150)}}</span>
             <span class="zona">{{ d.poblacion }}</span>
             {% if d.fotos is not empty %}
-                    <img src="{{ asset(d.fotos.0.webPath) }}" width="140px">
+                    <a href="{{  path('alquiler', { 'id': d.id }) }}"><img src="{{ asset(d.fotos.0.webPath) }}" width="140px"></a>
             {% endif %}
         </div>
         {% else %}

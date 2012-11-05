@@ -31,7 +31,14 @@
 	<div class="span8 offset1">
  	        	<h3>{{ entity.titulo }}</h3><hr>
 		<div class="image">
-		 	           <a href="{{ path('alquiler', {'id': entity.id}) }}"><img src="{{ asset(entity.fotos.0.webPath)}}" width="200px"></a>
+
+		 	           <a href="{{ path('alquiler', {'id': entity.id}) }}">
+                            {%  if entity.fotos is not empty %}
+                            <img src="{{ asset(entity.fotos.0.webPath)}}" width="200px">
+                            {%  else %}
+                                <h6>No foto</h6>
+                            {% endif %}
+                        </a>
 
 		</div>
 		<div class="content">

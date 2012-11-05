@@ -203,8 +203,12 @@ class AlquilerController extends Controller
         $alquiler = $foto->getAlquiler();
 
 
-        $foto->removeUpload();
+        if($foto->getPath() != 'noimage.png')
+        {
 
+
+        $foto->removeUpload();
+        }
         $em->remove($foto);
         $em->flush();
 
