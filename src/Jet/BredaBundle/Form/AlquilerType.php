@@ -13,7 +13,7 @@ class AlquilerType extends AbstractType
 
             ->add('tipo','choice',array(
                       'label' => 'Tipo de inmueble',
-            'choices' => array('piso' => 'Piso', 'despacho' => 'Despacho', 'nave' => 'Nave industrial' )
+            'choices' => array('piso' => 'Piso', 'despacho' => 'Oficina', 'nave' => 'Nave industrial' )
                   ))
 
             ->add('titulo', 'text', array(
