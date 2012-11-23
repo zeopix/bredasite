@@ -26,6 +26,8 @@
 .card span.desc { font-size: 12px; padding: 14px; color: #222; text-shadow: 1px 1px 0px #FFF; display: block; }
 .card span.zona { font-size: 14px; clear: both; margin-right:  42px; text-align: center; }
 
+.row.det .span4 .span1 { width: 90px; margin-left: 10px;}
+.row.det .span4 .span1 a { display: block;}
 .row.mkt .span3 p {
 	font-size: 22px;
 }

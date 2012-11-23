@@ -1,40 +1,39 @@
 {% extends '::base.html.twig'%}
 {% set active = 'nosotros' %}
-{% block background %}{% endblock %}
-{% block secondHeader %}
-{% endblock %}
-
 {% block container %}
 <div class="row">
-	<div class="span2">
-	</div>
-    <div class="span10 offset1">
+<div class="span6 offset1 about" style="padding-top: 50px">
+<h3>Sobre Nosotros</h3>
+<hr>
+<b>Construcciones breda S.L.</b>, fundada en 1989 que en la actualidad se dedica a:
+<br>
+<ul>
+    <li>La promoción y alquiler de naves industriales en el Baix Llobregat, en poligonos industriales muy bien comunicados.
+        Nuestras naves tienen distintas superficies: desde 500 a 5500m2, incluyendo planta baja y altillo. La altura mínima es de 10m.
+    </li>
+    <li>
+        El alquiler de oficinas comerciales en zona de negocios de Barcelona. Superficies de 105 a 130m2 con plaza de parking.
+    </li>
+    <li>
+        La rehabilitación y venta de pisos situados en el casco antiguo de Sarriá (Barcelona)
+    </li>
+</ul>
 
-        <h1>Construcciones breda</h1>
-        <hr>
-    		<p>
-    		<img align="right" src="{{ asset('bundles/jetbreda/img/breda.png') }}">
-        "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. 
-    </p>
-	<div style="clear:both; padding-top: 20px;"></div>
-	<span style="text-align:right">
-	<h2>Orígen</h2>
-    <hr>
-	<p>
-    No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain.
-    </p>
-    </span>
-    
-	<div style="clear:both; padding-top: 20px;"></div>
-    <h2>Situación Actual</h2>
-    <hr>
-	<p>
-    Which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?"
-    </p>
-    
-  </div>
 </div>
-	<div style="clear:both; padding-top: 80px;"></div>
-
-
-{% endblock %}
+<div class="span3 clients" style="padding: 30px; padding-top: 50px">
+    <h3>Nuestros Clientes</h3>
+    <hr>
+        <ul>
+            <li>Cantalou, S.A.</li>
+            <li>Geze Iberia, S.R.L.</li>
+            <li>Hill-Rom Iberia, S.L.</li>
+            <li>Leeroy Merlin España, S.L.</li>
+            <li>Mantenimientos ayuda a la explotación y servicios, S.A.</li>
+            <li>Ofimatic, S.A.</li>
+            <li>Serunion, S.A.</li>
+            <li>Kannegiesser España, S.L.</li>
+            <li>FBO Organisation, S.L.</li>
+        </ul>
+</div>
+</div>
+        {% endblock%}

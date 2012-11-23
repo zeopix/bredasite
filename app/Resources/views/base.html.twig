@@ -77,8 +77,6 @@
                                 href="{{ path('index')}}">Destacados</a></li>
                         <li {% if active == 'alquiler' %}class="active"{% endif %}><a href="{{ path('alquileres')}}">Alquileres</a>
                         </li>
-                        <li {% if active == 'clientes' %}class="active"{% endif %}><a href="{{ path('clientes')}}">Nuestros
-                            Clientes</a></li>
                         <li {% if active == 'nosotros' %}class="active"{% endif %}><a href="{{ path('nosotros')}}">Sobre
                             Nosotros</a></li>
                         <li {% if active == 'contacto' %}class="active"{% endif %}><a href="{{ path('contacto')}}">Contacto</a>
@@ -101,16 +99,32 @@
 
     <h2>Productos destacados</h2>
     <hr>
-    <div class="row">
-        {% for d in destacados %}
-        <div class="span3 card">
-            <span class="name">{{ d.titulo }}</span>
-            <span class="desc">{{ d.descipcion|truncate(150)}}</span>
-            <span class="zona">{{ d.poblacion }}</span>
-            {% if d.fotos is not empty %}
-                    <a href="{{  path('alquiler', { 'id': d.id }) }}"><img src="{{ asset(d.fotos.0.webPath) }}" width="140px"></a>
-            {% endif %}
+    <div class="row det">
+        {% for entity in destacados %}
+
+
+    <div class="span4 offset1">
+                <h3>{{ entity.titulo }}</h3><hr>
+        <div class="span1">
+            <a class="thumbnail" href="{{ path('alquiler', {'id': entity.id}) }}">
+                {%  if entity.fotos is not empty %}
+                    <img src="{{ asset(entity.fotos.0.webPath)}}" width="100%">
+                {%  else  %}
+                             <h6>No foto</h6>
+                {%  endif %}
+            </a>
+                                    <br><a class="btn btn-primary btn-small" href="{{ path('alquiler', {'id': entity.id}) }}"><b class="icon icon-search"></b> Ver</a>
+
+
         </div>
+        <div class="span2">
+        {{ entity.descipcion|raw }}
+        </div>
+        <div style="clear:both"></div>
+    </div>
+
+
+        
         {% else %}
         <b>No hay productos descatados</b>
         {% endfor %}
