@@ -80,6 +80,15 @@ class Alquiler
      */
     private $tipo;
 
+
+    /**
+     * @var text $destacado
+     *
+     * @ORM\Column(name="destacado", type="boolean")
+     */
+    private $destacado = false;
+
+
     //RELATIONS
 
     /**
@@ -217,11 +226,12 @@ class Alquiler
     {
         return $this->tipo;
     }
+
     public function __construct()
     {
         $this->fotos = new \Doctrine\Common\Collections\ArrayCollection();
     }
-    
+
     /**
      * Add fotos
      *
@@ -235,7 +245,7 @@ class Alquiler
     /**
      * Get fotos
      *
-     * @return Doctrine\Common\Collections\Collection 
+     * @return Doctrine\Common\Collections\Collection
      */
     public function getFotos()
     {
@@ -255,16 +265,16 @@ class Alquiler
     /**
      * Get titulo
      *
-     * @return text 
+     * @return text
      */
     public function getTitulo()
     {
         return $this->titulo;
     }
-    
+
     public function numFotos()
     {
-    	return count($this->fotos);
+        return count($this->fotos);
     }
 
     /**
@@ -280,10 +290,30 @@ class Alquiler
     /**
      * Get superficie
      *
-     * @return integer 
+     * @return integer
      */
     public function getSuperficie()
     {
         return $this->superficie;
+    }
+
+    /**
+     * Set destacado
+     *
+     * @param boolean $destacado
+     */
+    public function setDestacado($destacado)
+    {
+        $this->destacado = $destacado;
+    }
+
+    /**
+     * Get destacado
+     *
+     * @return boolean 
+     */
+    public function getDestacado()
+    {
+        return $this->destacado;
     }
 }

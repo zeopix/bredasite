@@ -134,4 +134,44 @@ class Foto
     {
         return $this->descripcion;
     }
+
+    /**
+     * Set path
+     *
+     * @param string $path
+     */
+    public function setPath($path)
+    {
+        $this->path = $path;
+    }
+
+    /**
+     * Get path
+     *
+     * @return string 
+     */
+    public function getPath()
+    {
+        return $this->path;
+    }
+
+    /**
+     * Set alquiler
+     *
+     * @param Jet\BredaBundle\Entity\Alquiler $alquiler
+     */
+    public function setAlquiler(\Jet\BredaBundle\Entity\Alquiler $alquiler)
+    {
+        $this->alquiler = $alquiler;
+    }
+
+    /**
+     * Get alquiler
+     *
+     * @return Jet\BredaBundle\Entity\Alquiler 
+     */
+    public function getAlquiler()
+    {
+        return $this->alquiler;
+    }
 }

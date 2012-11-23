@@ -1,30 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <title>Breda Construcciones</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
 
-      
-      <!-- Le javascript
-         ================================================== -->
-         <!-- Placed at the end of the document so the pages load faster -->
-         <script src="{{ asset('bundles/jetbreda/js/jquery.js') }}"></script>
-         <script src="{{ asset('bundles/jetbreda/js/bootstrap-transition.js') }}"></script>
-         <script src="{{ asset('bundles/jetbreda/js/bootstrap-alert.js') }}"></script>
-         <script src="{{ asset('bundles/jetbreda/js/bootstrap-modal.js') }}"></script>
-         <script src="{{ asset('bundles/jetbreda/js/bootstrap-dropdown.js') }}"></script>
-         <script src="{{ asset('bundles/jetbreda/js/bootstrap-scrollspy.js') }}"></script>
-         <script src="{{ asset('bundles/jetbreda/js/bootstrap-tab.js') }}"></script>
-         <script src="{{ asset('bundles/jetbreda/js/bootstrap-tooltip.js') }}"></script>
-         <script src="{{ asset('bundles/jetbreda/js/bootstrap-popover.js') }}"></script>
-         <script src="{{ asset('bundles/jetbreda/js/bootstrap-button.js') }}"></script>
-         <script src="{{ asset('bundles/jetbreda/js/bootstrap-collapse.js') }}"></script>
-         <script src="{{ asset('bundles/jetbreda/js/bootstrap-carousel.js') }}"></script>
-         <script src="{{ asset('bundles/jetbreda/js/bootstrap-typeahead.js') }}"></script>
 
+    <!-- Le javascript
+   ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{{ asset('bundles/jetbreda/js/jquery.js') }}"></script>
+    <script src="{{ asset('bundles/jetbreda/js/bootstrap-transition.js') }}"></script>
+    <script src="{{ asset('bundles/jetbreda/js/bootstrap-alert.js') }}"></script>
+    <script src="{{ asset('bundles/jetbreda/js/bootstrap-modal.js') }}"></script>
+    <script src="{{ asset('bundles/jetbreda/js/bootstrap-dropdown.js') }}"></script>
+    <script src="{{ asset('bundles/jetbreda/js/bootstrap-scrollspy.js') }}"></script>
+    <script src="{{ asset('bundles/jetbreda/js/bootstrap-tab.js') }}"></script>
+    <script src="{{ asset('bundles/jetbreda/js/bootstrap-tooltip.js') }}"></script>
+    <script src="{{ asset('bundles/jetbreda/js/bootstrap-popover.js') }}"></script>
+    <script src="{{ asset('bundles/jetbreda/js/bootstrap-button.js') }}"></script>
+    <script src="{{ asset('bundles/jetbreda/js/bootstrap-collapse.js') }}"></script>
+    <script src="{{ asset('bundles/jetbreda/js/bootstrap-carousel.js') }}"></script>
+    <script src="{{ asset('bundles/jetbreda/js/bootstrap-typeahead.js') }}"></script>
 
 
     <!-- Le styles -->
@@ -32,117 +31,110 @@
     <link href="{{ asset('bundles/jetbreda/css/font-awesome.css')}}" rel="stylesheet">
     <link href="{{ asset('bundles/jetbreda/css/custom.css')}}" rel="stylesheet">
     <style>
-      body {
-        padding-top: 20px; /* 60px to make the container go all the way to the bottom of the topbar */
-      }
+        body {
+            padding-top: 20px; /* 60px to make the container go all the way to the bottom of the topbar */
+        }
     </style>
     <link href="{{ asset('bundles/jetbreda/css/bootstrap-responsive.css')}}" rel="stylesheet">
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
     <!-- Le fav and touch icons -->
-	<script>
-		$(function(){
-			$('.carousel').carousel({
-			  interval: 2000
-			})
-		})
-	</script>
+    <script>
+        $(function () {
+            $('.carousel').carousel({
+                interval:2000
+            })
+        })
+    </script>
 
-      {% block extra %}
-      {% endblock %}
-   </head>
+    {% block extra %}
+    {% endblock %}
+</head>
 
-  <body>
-  {% block background %}
-  {% endblock %}
-	<div class="container">
-	<img src="{{ asset('bundles/jetbreda/assets/logo.png')}}" width="300px">
+<body>
+{% block background %}
+{% endblock %}
+<div class="container">
+    <img src="{{ asset('bundles/jetbreda/assets/logo.png')}}" width="300px">
+
     <div class="navbar">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <div class="nav-collapse">
-            <ul class="nav">
-                {% block menuHeader %}
-              <li {% if active == 'index' %}class="active"{% endif %}><a href="{{ path('index')}}">Destacados</a></li>
-              <li {% if active == 'alquiler' %}class="active"{% endif %}><a href="{{ path('alquileres')}}">Alquileres</a></li>
-              <li {% if active == 'clientes' %}class="active"{% endif %}><a href="{{ path('clientes')}}">Nuestros Clientes</a></li>
-              <li {% if active == 'nosotros' %}class="active"{% endif %}><a href="{{ path('nosotros')}}">Sobre Nosotros</a></li>
-                <li {% if active == 'contacto' %}class="active"{% endif %}><a href="{{ path('contacto')}}">Contacto</a></li>
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
 
-                {% endblock %}
-            </ul>
-          </div><!--/.nav-collapse -->
+                <div class="nav-collapse">
+                    <ul class="nav">
+                        {% block menuHeader %}
+                        <li {% if active == 'index' %}class="active"{% endif %}><a
+                                href="{{ path('index')}}">Destacados</a></li>
+                        <li {% if active == 'alquiler' %}class="active"{% endif %}><a href="{{ path('alquileres')}}">Alquileres</a>
+                        </li>
+                        <li {% if active == 'clientes' %}class="active"{% endif %}><a href="{{ path('clientes')}}">Nuestros
+                            Clientes</a></li>
+                        <li {% if active == 'nosotros' %}class="active"{% endif %}><a href="{{ path('nosotros')}}">Sobre
+                            Nosotros</a></li>
+                        <li {% if active == 'contacto' %}class="active"{% endif %}><a href="{{ path('contacto')}}">Contacto</a>
+                        </li>
+
+                        {% endblock %}
+                    </ul>
+                </div>
+                <!--/.nav-collapse -->
+            </div>
         </div>
-      </div>
     </div>
 
 
-      	{% block secondHeader %}
-                 {% endblock %}
+    {% block secondHeader %}
+    {% endblock %}
 
-        {% block container %}
-          <br><br><br>
-          <h2>Productos destacados</h2>
-          <hr>
-          
-          <div class="row">
-          	<div class="span3 card">
-          		<span class="name">Local en Rubí</span>
-          		<span class="desc">Local totalmente diáfano con salida de humos y terraza de 120m2 ideal restaurante.</span>
-          		<span class="zona">Rubí</span>
-          		<img src="http://www.kritios.com/uploaded/alquiler/48/DSC00305.JPG" width="140px">
-          	</div>
-          	<div class="span3 card">
-          		<span class="name">Local en Rubí</span>
-          		<span class="desc">Local totalmente diáfano con salida de humos y terraza de 120m2 ideal restaurante.</span>
-          		<span class="zona">Rubí</span>
-          		<img src="http://www.kritios.com/uploaded/alquiler/48/DSC00305.JPG" width="140px">
-          	</div>
-          	<div class="span3 card">
-          		<span class="name">Local en Rubí</span>
-          		<span class="desc">Local totalmente diáfano con salida de humos y terraza de 120m2 ideal restaurante.</span>
-          		<span class="zona">Rubí</span>
-          		<img src="http://www.kritios.com/uploaded/alquiler/48/DSC00305.JPG" width="140px">
-          	</div>
-          	<div class="span3 card">
-          		<span class="name">Local en Rubí</span>
-          		<span class="desc">Local totalmente diáfano con salida de humos y terraza de 120m2 ideal restaurante.</span>
-          		<span class="zona">Rubí</span>
-          		<img src="http://www.kritios.com/uploaded/alquiler/48/DSC00305.JPG" width="140px">
-          	</div>
-          	<div class="span3 card">
-          		<span class="name">Local en Rubí</span>
-          		<span class="desc">Local totalmente diáfano con salida de humos y terraza de 120m2 ideal restaurante.</span>
-          		<span class="zona">Rubí</span>
-          		<img src="http://www.kritios.com/uploaded/alquiler/48/DSC00305.JPG" width="140px">
-          	</div>
-          </div>
-      	
-      	<br>
-      	<br>
+    {% block container %}
+    <br><br><br>
 
-        {% endblock %}
-      	
-     <!-- Footer
-      ================================================== -->
-      <footer class="footer">
-        
-        <p>© Construcciones breda. </p>
-        <p class="pull-right">Powered by <a href="http://www.3media.es" target="_blank">3media.es</a>
-      </footer>
-      	
-      	
-    </div> <!-- /container -->
+    <h2>Productos destacados</h2>
+    <hr>
+    <div class="row">
+        {% for d in destacados %}
+        <div class="span3 card">
+            <span class="name">{{ d.titulo }}</span>
+            <span class="desc">{{ d.descipcion|truncate(150)}}</span>
+            <span class="zona">{{ d.poblacion }}</span>
+            {% if d.fotos is not empty %}
+                    <a href="{{  path('alquiler', { 'id': d.id }) }}"><img src="{{ asset(d.fotos.0.webPath) }}" width="140px"></a>
+            {% endif %}
+        </div>
+        {% else %}
+        <b>No hay productos descatados</b>
+        {% endfor %}
+    </div>
+
+</div>
+
+<br>
+<br>
+
+{% endblock %}
+
+<!-- Footer
+================================================== -->
+<footer class="footer">
+
+    <p>© Construcciones breda. </p>
+
+    <p class="pull-right">Powered by <a href="http://www.3media.es" target="_blank">3media.es</a>
+</footer>
 
 
-  </body>
+</div> <!-- /container -->
+
+
+</body>
 </html>

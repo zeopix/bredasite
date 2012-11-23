@@ -17,4 +17,4 @@ composer.lock
 composer.phar
 autoload.php
 /vendor/
->>>>>>> 27100ba4ebc921715cfd3c129ac83837812d8369
+*/.DS_Store

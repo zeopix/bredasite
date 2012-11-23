@@ -3,7 +3,9 @@
 {% set active = "alquiler"%}
 
 {% block container%}
+<h1>Lista de alquileres</h1>
 
+<hr class="soften">
         <a href="{{ path('admin_alquiler_new') }}" class="btn">
            Añadir Producto
         </a>
@@ -16,7 +18,14 @@
 	<div class="span8 offset2">
  	        	<h3>{{ entity.titulo }}</h3><hr>
 		<div class="image">
-		 	           <a href="{{ path('alquiler', {'id': entity.id}) }}"><img src="{{ asset(entity.fotos.0.webPath)}}" width="200px"></a>
+		 	           <a href="{{ path('alquiler', {'id': entity.id}) }}">
+                            {%  if entity.fotos is not empty %}
+                            <img src="{{ asset(entity.fotos.0.webPath)}}" width="200px">
+                                {%  else  %}
+
+                             <h6>No foto</h6>
+                             {%  endif %}
+                        </a>
 
 		</div>
 		<div class="content">
@@ -31,6 +40,6 @@
 	</div><br><br>
 	{% endfor %}
 </div>
-<h1>Alquiler list</h1>
+
 
 {% endblock %}

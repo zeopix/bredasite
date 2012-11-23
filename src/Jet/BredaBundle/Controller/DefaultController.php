@@ -14,7 +14,15 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        return array();
+        $em = $this->getDoctrine()->getEntityManager();
+        //$destacados = $em->getRepository('JetBredaBundle:Alquiler')->findByDestacado(true);
+
+        $q = $em->createQuery('SELECT u FROM JetBredaBundle:Alquiler u WHERE u.destacado = true ORDER BY u.id DESC')
+            ->setMaxResults(6)
+            ->setFirstResult(0);
+        $destacados = $q->getResult();
+
+        return array('destacados' => $destacados);
     }
 
     /**
