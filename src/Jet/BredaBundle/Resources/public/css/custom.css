@@ -19,7 +19,10 @@ form.actions.form btn,form.actions.form button.btn { }
 .card {
 	
 }
-.modal.gallery.fade.in { height: 90%; width: 90%; top:4%; margin: 0px; left: 4%; }
+.my.modal-body {
+	max-height: 80%;
+}
+.modal.gallery.fade.in { height: 90%; width: 90%; top:2%; margin: 0px; left: 4%; }
 .gallery-pic {
 overflow:hidden;
 height: 210px;
