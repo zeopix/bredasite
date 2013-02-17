@@ -2,100 +2,84 @@
 
 {% set active = "alquiler"%}
 
-{% block container%}
-{% if entity.destacado %}
+{% block container %}
 <div class="row">
-<div class="alert alert-warning span2">
-   <b class="icon  icon-star"></b> <strong>ALQUILER DESTADO!</strong>
-</div>
-</div>
-{% endif %}
-<h1>Alquiler en {{ entity.direccion }}, {{ entity.poblacion }}</h1>
+    <div class="span10 offset1">
 
-<div class="row">
-    <div class="span4 well">
-        <h3>{{ entity.tipo }} en {{ entity.poblacion }}</h3>
-        <h4>{{ entity.direccion }}</h4> <h6>{{ entity.postal }}</h6>
-        <hr class="soften">
-        <h5>Descripción</h5>
-        {{ entity.descipcion|raw }}
-    </div>
+        <div class="span4">
+            <h1>Información Básica</h1>
+            {% if entity.destacado %}<br>
+                <div class="alert alert-warning span3">
+                   <b class="icon  icon-star"></b> <strong>ALQUILER DESTACADO!</strong>
+                </div>
+            {% endif %}
+            <table class="table details table-condensed">
+                <tr><th>Título</th></tr>
+                <tr><td>Título</td></tr>
 
-    <div class="span4 well">
-        <h5>Parámetros adicionales</h5>
-        {{ entity.extra|raw}}
-    </div>
-</div>
+                <tr><th>Tipo</th></tr>
+                <tr><td>{{ entity.tipo }}</td></tr>
 
-<div class="row">
-    *Recuerda que para cambiar la dirección, puedes editar la información del inmueble
-    <div id="map_canvas"></div>
-</div>
-<div class="row" style="margin-top: 40px;">
+                <tr><th>Dirección</th></tr>
+                <tr><td>{{ entity.direccion }}, {{ entity.postal }}, {{ entity.poblacion }}</td></tr>
 
-    <div class="span8">
-        <h2>Galería</h2>
-        {% if entity.fotos is not empty %}
-        {% for foto in entity.fotos %}
-        <div class="span2 well">
-            <p><img src="{{ asset(foto.webPath) }}" title="{{ entity.poblacion }}" width="200px"></p>
-
-            <p><small>{{ foto.descripcion }}</small></p>
-            <p><a href="{{ path('admin_alquiler_deleteFoto', {'id': foto.id})}}" class="btn btn-danger">Eliminar imágen</a></p>
+                <tr><th>Mapa</th></tr>
+                <tr><td>*Recuerda que para cambiar el mapa, debes verificar y editar la dirección del inmueble
+    <div id="map_canvas"></div></td></tr>
+            </table>
         </div>
-        {% endfor %}
-        {% else %}
-        <div class="alert alert-info">
-            <strong>Información!</strong> No has añadido ninguna foto
+        <div class="span4 offset1">
+            <br><br>
+            <form class="actions form" action="{{ path('admin_alquiler_delete', { 'id': entity.id }) }}" method="post" style="">
+                <a href="{{ path('admin_alquiler') }}" class="btn btn-block">Volver a la lista</a>
+                <a href="{{ path('admin_alquiler_edit', { 'id': entity.id }) }}" class="btn btn-block btn-info">Editar</a>
+                {{ form_widget(delete_form) }}
+                <button type="submit" class="btn btn-danger btn-block">Borrar</button>
+            </form>
+
+            <table class="table details table-condensed">
+                <tr><th>Descripción</th></tr>
+                <tr><td>{{ entity.descipcion|raw }}</td></tr>
+                <tr><th>Parámetros Adicionales</th></tr>
+                <tr><td>{{ entity.extra|raw }}</td></tr>
+            </table>
         </div>
-        {% endif %}
-    </div>
-
-</div>
-
-<div class="row" style="margin-top: 20px; margin-bottom: 20px">
-    <div class="span8">
-        <legend>Añadir imágen</legend>
-        <form class="form-horizontal" method="post" {{ form_enctype(fotoForm) }}>
-          <div class="control-group">
-            <label class="control-label" for="jet_bredabundle_fototype_descripcion">Descripción</label>
-            <div class="controls">
-              {{ form_widget(fotoForm.descripcion)}}
-            </div>
-          </div>
-          <div class="control-group">
-            <label class="control-label" for="jet_bredabundle_fototype_file">Nueva imágen</label>
-            <div class="controls">
-              {{ form_widget(fotoForm.file)}}
-            </div>
-          </div>
-          <div class="control-group">
-            <div class="controls">
-
-                <input type="submit" class="btn btn-success" value="Añadir imágen">
-            </div>
-          </div>
-        </form>
-
-
-    </div>
-</div>
-
-<form action="{{ path('admin_alquiler_delete', { 'id': entity.id }) }}" method="post" style="padding-bottom: 10px">
-    <a href="{{ path('admin_alquiler') }}" class="btn btn-block pull-left">
-        Volver a la lista
-    </a>
-
-    <a href="{{ path('admin_alquiler_edit', { 'id': entity.id }) }}" class="btn btn-info btn-block pull-left" style="margin-left: 10px ; margin-bottom: 10px" >
-        Editar
-    </a>
-    {{ form_widget(delete_form) }}
-    <button type="submit" class="btn btn-danger pull-left "  style="margin-left: 10px">Borrar</button>
-</form>
+        <div style="clear:both"></div>
+        <div class="span9"><h1>Galería</h1></div>
+        <div style="clear:both"></div><br>
+        <div class="span4">
+            <h4>Imágenes</h4>
+            <table class="table details table-condensed">
+                {% if entity.fotos is not empty %}
+                {% for foto in entity.fotos %}
+                <tr><th>{{ foto.descripcion }}</th></tr>
+                <tr><td><img src="{{ asset(foto.webPath) }}" title="{{ entity.poblacion }}" width="200px"><br>
+                    <a href="{{ path('admin_alquiler_deleteFoto', {'id': foto.id})}}" class="btn btn-danger btn-block">Eliminar imágen</a></td></tr>
+                {% endfor %}
+                {% else %}
+                <tr><th>No hay ninguna foto.</th></tr>
+                {% endif %}
+            </table>
+        </div>
+        <div class="span4 offset1">
+            <h4>Añadir Imágen</h4>
+            <form class="form-horizontal" method="post" {{ form_enctype(fotoForm) }}>
+            <table class="table details table-condensed">
+                <tr><th>Descripción</th></tr>
+                <tr><td>{{ form_widget(fotoForm.descripcion)}}</td></tr>
+                <tr><th>Archivo</th></tr>
+                <tr><td>{{ form_widget(fotoForm.file)}}</td></tr>
+            </table>
+            {{ form_rest(fotoForm) }}
+            <input type="submit" class="btn btn-success" value="Añadir imágen">
+            </form>
+        </div>
+        
 
 <div style="clear: both; margin-top:"></div>
 
-
+</div>
+</div>
 
 
         {% endblock %}
@@ -106,7 +90,7 @@
 
     <script type="text/javascript">
         $(function() {
-            $("#map_canvas").width("900px").height("350px").gmap3({
+            $("#map_canvas").width("370px").height("250px").gmap3({
                 marker:{
                     address: "{{ entity.direccion }}, {{  entity.poblacion }}"
                 },

@@ -3,43 +3,46 @@
 {% set active = "alquiler"%}
 
 {% block container%}
+<div class="row">
+    <div class="span10 offset1">
 <h1>Lista de alquileres</h1>
-
-<hr class="soften">
-        <a href="{{ path('admin_alquiler_new') }}" class="btn">
+<a href="{{ path('admin_alquiler_new') }}" class="btn btn-primary pull-right">
            Añadir Producto
         </a>
 <hr class="soften">
+        
 <div style="margin-top: 40px"></div>
 
 <div class="row">
     {% for entity in entities %}
 
-	<div class="span8 offset2">
+	<div class="span8 offset1">
  	        	<h3>{{ entity.titulo }}</h3><hr>
 		<div class="image">
-		 	           <a href="{{ path('alquiler', {'id': entity.id}) }}">
-                            {%  if entity.fotos is not empty %}
-                            <img src="{{ asset(entity.fotos.0.webPath)}}" width="200px">
-                                {%  else  %}
+	       <a href="{{ path('alquiler', {'id': entity.id}) }}">
+                {%  if entity.fotos is not empty %}
+                <img src="{{ asset(entity.fotos.0.webPath)}}" width="200px">
+                    {%  else  %}
 
-                             <h6>No foto</h6>
-                             {%  endif %}
-                        </a>
+                 <h6>No foto</h6>
+                 {%  endif %}
+            </a>
+            <div style="text-align:center">
+                <a class="btn btn-primary btn-block" href="{{ path('admin_alquiler_show', { 'id': entity.id }) }}">Expandir</a>
+                <a class="btn btn-danger btn-block" href="{{ path('admin_alquiler_show', { 'id': entity.id }) }}">Galeria</a>
+                <a class="btn btn-success btn-block" href="{{ path('admin_alquiler_edit', { 'id': entity.id }) }}">Editar</a>
+            </div>
 
 		</div>
 		<div class="content">
 		{{ entity.descipcion|raw }}
 		</div>
 		<div style="clear:both"></div>
-		<span class="actions pull-right">
-                        <a class="btn btn-primary" href="{{ path('admin_alquiler_show', { 'id': entity.id }) }}">Expandir</a>
-                        <a class="btn btn-danger" href="{{ path('admin_alquiler_show', { 'id': entity.id }) }}">Galeria</a>
-                        <a class="btn btn-success" href="{{ path('admin_alquiler_edit', { 'id': entity.id }) }}">Editar</a>
-                        </span>
 	</div><br><br>
 	{% endfor %}
 </div>
 
+</div>
+</div>
 
 {% endblock %}
