@@ -39,17 +39,21 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/Alquileres", name="alquileres")
+     * @Route("/Alquileres/{type}/{order}", name="alquileres", defaults={"type"="nave","order"="ASC"})
      * @Template()
      */
-    public function alquileresAction()
+    public function alquileresAction($type,$order)
     {
         $em = $this->getDoctrine()->getEntityManager();
+        $queryOrder = "ASC";
+        if($order == "DESC"){
+            $queryOrder = "DESC"; 
+        }
+        $alquileres = $em->createQuery("SELECT a FROM JetBredaBundle:Alquiler a WHERE a.tipo LIKE :type ORDER BY a.superficie ".$order)
+        ->setParameter("type","%".$type."%")
+        ->getResult();
 
-
-        $alquileres = $em->getRepository('JetBredaBundle:Alquiler')->findAll();
-
-        return array('Alquileres' => $alquileres);
+        return array('Alquileres' => $alquileres,'order'=>$order,'type'=>$type);
     }
 
     /**

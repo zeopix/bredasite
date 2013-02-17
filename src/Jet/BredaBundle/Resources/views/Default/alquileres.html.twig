@@ -4,9 +4,9 @@
 <div class="row" style="margin-top: 50px">
 	<div class="span4 offset1">
 		<div class="btn-group" data-toggle="buttons-radio">
-		  <button class="btn active"><b class="icon icon-inbox"></b> Naves</button>
-		  <button class="btn"><b class="icon icon-briefcase"></b> Locales</button>
-		  <button class="btn"><b class="icon icon-home"></b> Pisos</button>
+		  <a href="{{ path('alquileres',{'order':order,'type':'nave'}) }}" class="btn{% if type == 'nave' %} active{% endif%}"><b class="icon icon-inbox"></b> Naves</a>
+		  <a href="{{ path('alquileres',{'order':order,'type':'despacho'}) }}" class="btn{% if type == 'despacho' %} active{% endif%}"><b class="icon icon-briefcase"></b> Locales</a>
+		  <a href="{{ path('alquileres',{'order':order,'type':'piso'}) }}" class="btn{% if type == 'piso' %} active{% endif%}"><b class="icon icon-home"></b> Pisos</a>
 		</div>
 	</div>
 	<div class="span3 offset4">
@@ -16,8 +16,8 @@
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu">
-    <li><a href="#">Mayor Superficie</a></li>
-    <li><a href="#">Menor Superficie</a></li>
+    <li><a href="{{ path('alquileres',{'order':'DESC','type':type}) }}">De mayor a menor Superficie</a></li>
+    <li><a href="{{ path('alquileres',{'order':'ASC','type':type}) }}">De menor a mayor Superficie</a></li>
   </ul>
 </div>
 
@@ -25,7 +25,7 @@
 </div>
 <br><br>
 <div class="row">
-	<div class="span10 offset1">
+	<div class="span10 offset1" style="margin-bottom: 200px;">
     {% for entity in Alquileres %}
 
 	<div class="span8 offset1">
@@ -38,7 +38,8 @@
                             {%  else %}
                                 <h6>No foto</h6>
                             {% endif %}
-                        </a>
+                        </a><br>
+                        <b> Superficie:</b> {{ entity.superficie }} m<sup>2</sup>
 
 		</div>
 		<div class="content">
@@ -53,6 +54,15 @@
 		<div style="clear:both"></div>
 		<a class="btn pull-right btn-primary" href="{{ path('alquiler', {'id': entity.id}) }}">Ampliar detalles</a>
 	</div><br><br>
+	{% else %}
+	<form class="form-horizontal">
+
+    <fieldset>
+        <legend>Sección en Obras!</legend>
+        <h4>Actualmente, estamos trabajando para actualizar el contenido de esta sección, si tienes alguna duda o sugerencia, contacta con nosotros a través de la <a href="{{ path('contacto') }}">página de contacto</a>.</h4>
+        <h5>Gracias.</h5>
+    </fieldset>
+<form>
 	{% endfor %}
     </div>
 </div>

@@ -19,6 +19,16 @@ form.actions.form btn,form.actions.form button.btn { }
 .card {
 	
 }
+.modal.gallery.fade.in { height: 90%; width: 90%; top:4%; margin: 0px; left: 4%; }
+.gallery-pic {
+overflow:hidden;
+height: 210px;
+margin: 10px;
+display:inline;
+line-height: 220px;
+
+
+}
 .row.about-us {
 	font-size: 18px;
 	line-height: 28px;
