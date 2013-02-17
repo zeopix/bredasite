@@ -59,7 +59,7 @@ class Alquiler
     /**
      * @var text $extra
      *
-     * @ORM\Column(name="extra", type="text")
+     * @ORM\Column(name="extra", type="text",nullable="true")
      */
     private $extra;
 
@@ -295,6 +295,11 @@ class Alquiler
     public function getSuperficie()
     {
         return $this->superficie;
+    }
+
+    public function getShortDescripcion($len=300){
+        return substr(nl2br(strip_tags($this->descipcion)),0,$len);
+       // return $this->descipcion;
     }
 
     /**

@@ -79,7 +79,50 @@
           	</div>
           </div>
 
+
+
         {% endblock %}
+
+          {% block container %}
+    <br><br><br>
+
+    <h2>Productos destacados</h2>
+    <hr>
+    <div class="row">
+        {% for entity in destacados %}
+
+
+    <div class="span5 grey-box" style="margin-left: 80px">
+                <h3 style="padding: 8px;">{{ entity.titulo }}</h3><hr style="margin: 0px;">
+        <div class="span2" style="margin: 5px;">
+            <a class="thumbnail" href="{{ path('alquiler', {'id': entity.id}) }}">
+                {%  if entity.fotos is not empty %}
+                    <img src="{{ asset(entity.fotos.0.webPath)}}" width="100%">
+                {%  else  %}
+                             <h6>No foto</h6>
+                {%  endif %}
+            </a>
+                                    <a class="btn btn-block btn-primary btn-small" href="{{ path('alquiler', {'id': entity.id}) }}"><b class="icon icon-search"></b> Ver</a>
+
+
+        </div>
+        <div class="span2" style="width: 220px; overflow:hidden; height: 120px">
+        {{ entity.descipcion|raw }}
+        </div>
+        <div style="clear:both"></div>
+    </div>
+
+
+        
+        {% else %}
+        <b>No hay productos descatados</b>
+        {% endfor %}
+    </div>
+<div style="clear:both; margin-bottom:30px"></div>
+
+{% endblock %}
+
+
   {% block background %}
   	<div class="background"></div>
   {% endblock %}

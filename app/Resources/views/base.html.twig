@@ -59,7 +59,7 @@
 {% block background %}
 {% endblock %}
 <div class="container">
-    <img src="{{ asset('bundles/jetbreda/assets/logo.png')}}" width="300px">
+    <a href="{{ path('index') }}"><img src="{{ asset('bundles/jetbreda/assets/logo_ltd.png')}}" width="300px"></a>
 
     <div class="navbar">
         <div class="navbar-inner">
@@ -95,45 +95,8 @@
     {% endblock %}
 
     {% block container %}
-    <br><br><br>
+   
 
-    <h2>Productos destacados</h2>
-    <hr>
-    <div class="row det">
-        {% for entity in destacados %}
-
-
-    <div class="span4 offset1">
-                <h3>{{ entity.titulo }}</h3><hr>
-        <div class="span1">
-            <a class="thumbnail" href="{{ path('alquiler', {'id': entity.id}) }}">
-                {%  if entity.fotos is not empty %}
-                    <img src="{{ asset(entity.fotos.0.webPath)}}" width="100%">
-                {%  else  %}
-                             <h6>No foto</h6>
-                {%  endif %}
-            </a>
-                                    <br><a class="btn btn-primary btn-small" href="{{ path('alquiler', {'id': entity.id}) }}"><b class="icon icon-search"></b> Ver</a>
-
-
-        </div>
-        <div class="span2">
-        {{ entity.descipcion|raw }}
-        </div>
-        <div style="clear:both"></div>
-    </div>
-
-
-        
-        {% else %}
-        <b>No hay productos descatados</b>
-        {% endfor %}
-    </div>
-
-</div>
-
-<br>
-<br>
 
 {% endblock %}
 
@@ -141,7 +104,7 @@
 ================================================== -->
 <footer class="footer">
 
-    <p>© Construcciones breda. </p>
+    <p>© Construcciones breda. - <a target="_blank" href="{{ asset('bundles/jetbreda/terms_of_use.pdf') }}">Aviso Legal</a></p>
 
     <p class="pull-right">Powered by <a href="http://www.3media.es" target="_blank">3media.es</a>
 </footer>
