@@ -58,7 +58,32 @@ class DefaultController extends Controller
      */
     public function contactoAction()
     {
-        return array();
+        $contactModel = new \Jet\BredaBundle\Model\Contact();
+        $form = $this->createForm(new \Jet\BredaBundle\Form\ContactType(),$contactModel);
+
+        if($this->getRequest()->getMethod() == "POST"){
+            $form->bindRequest($this->getRequest());
+            if($form->isValid()){
+
+                $message = \Swift_Message::newInstance()
+                ->setSubject('Construcciones Breda: Información')
+                ->setFrom(array('no_reply@construccionesbreda.com'=>"CC. Breda Mailbot"))
+                ->setTo('info@construccionesbreda.com')
+                ->setBody(
+                    $this->renderView(
+                        'JetBredaBundle:Default:email.html.twig',
+                        $contactModel->toArray()
+                    ),'text/html'
+                );
+
+                $this->get('mailer')->send($message);
+                
+                return array();
+            }
+        }
+        
+
+        return array('form' => $form->createView());
     }
 
     /**

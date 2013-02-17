@@ -3,7 +3,17 @@
 {% block container %}
 <div class="row">
 <div class="span8 offset1">
+{% if form is not defined %}
 <form class="form-horizontal" style="margin-top: 50px">
+
+    <fieldset>
+        <legend>Formulario de contacto</legend>
+        <h4>Se ha enviado un email con tu información de contacto a <a href="mailto:info@construccionesbreda.com">info@construccionesbreda.com</a>, nos pondremos en contacto contigo para ofrecerte más información lo antes posible.</h4>
+        <h5>Gracias.</h5>
+    </fieldset>
+<form>
+{% else %}
+<form class="form-horizontal" style="margin-top: 50px" method="POST" action="{{ path('contacto') }}">
 
     <fieldset>
         <legend>Formulario de contacto</legend>
@@ -11,7 +21,7 @@
             <label class="control-label" for="nombre">Persona de Contacto</label>
 
             <div class="controls">
-                <input type="text" class="input-xlarge" id="nombre" name="nombre" required="true">
+                {{form_widget(form.persona)}}
 
                 <p class="help-block"><i>Obligatorio</i> (Nombre y Apellidos)</p>
             </div>
@@ -21,7 +31,7 @@
             <label class="control-label" for="email">Correo electrónico</label>
 
             <div class="controls">
-                <input type="text" class="input-xlarge" id="email" name="email" required="true">
+                {{form_widget(form.email)}}
 
                 <p class="help-block"><i>Obligatorio</i></p>
             </div>
@@ -31,7 +41,7 @@
             <label class="control-label" for="nombre">Teléfono de contacto</label>
 
             <div class="controls">
-                <input type="text" class="input-xlarge" id="telefono" name="telefono" required="true">
+                {{form_widget(form.telefono)}}
 
                 <p class="help-block"><i>Obligatorio</i></p>
             </div>
@@ -42,26 +52,30 @@
             <label class="control-label" for="textarea">Consulta</label>
 
             <div class="controls">
-                <textarea class="input-xlarge" id="textarea" rows="3" required="true"></textarea>
+                {{form_widget(form.consulta)}}
             </div>
         </div>
+        {{form_rest(form)}}
         <div class="form-actions">
             <button type="submit" class="btn btn-primary">Enviar formulario</button>
 
         </div>
     </fieldset>
 </form>
+{% endif %}
 </div>
 <div class="span2" style="padding: 30px; padding-top: 50px">
 	    		<img src="{{ asset('bundles/jetbreda/img/breda.png') }}"><br>
 <b>Dirección:</b>
-<p class="pull-right">C\ Lorem Ipsut 12, 3º</p>
+<p class="pull-right">C/ Riera Sant Miquel nº 3 s/atico 1ª</p>
 <div style="clear:both; padding-top: 10px;"></div>
 <b>Horario comercial:</b> 
 <p class="pull-right">9:00h - 13:30h</p>
 <div style="clear:both; padding-top: 10px;"></div>
 <b>Telefono Fijo:</b> 
-<p class="pull-right">931 234 567</p>
+<p class="pull-right">93 218 00 40</p>
+<b>Fax:</b> 
+<p class="pull-right">93 218 00 41</p>
 <div style="clear:both; padding-top: 10px;"></div>
 </div>
 </div>

@@ -19,7 +19,13 @@ form.actions.form btn,form.actions.form button.btn { }
 .card {
 	
 }
-
+.row.about-us {
+	font-size: 18px;
+	line-height: 28px;
+}
+.row.about-us li {
+	margin-top: 30px;
+}
 .grey-box {
 	margin: 30px;
 background-color: #fbfbfb;
