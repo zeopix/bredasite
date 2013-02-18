@@ -18,6 +18,15 @@ class AdminController extends Controller
 {
     /**
      *
+     * @Route("/", name="admin")
+     * @Template()
+     */
+    public function indexAction()
+    {
+        return array();
+    }
+    /**
+     *
      * @Route("/home", name="admin_home")
      * @Template()
      */

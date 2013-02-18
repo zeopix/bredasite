@@ -1,15 +1,14 @@
 {% extends "::base.html.twig" %}
 {% block background %}{% endblock %}
 {% block menuHeader %}
+<li {% if active == 'soporte' %}class="active"{% endif %}><a href="{{ path('admin')}}">Soporte</a></li>
 <li {% if active == 'alquiler' %}class="active"{% endif %}><a href="{{ path('admin_alquiler')}}">Alquileres</a></li>
 <li {% if active == 'home' %}class="active"{% endif %}><a href="{{ path('admin_home')}}">Pagina de inicio</a></li>
 
 {% endblock %}
 
-{% block secondHeader %}
-<div class="row" style="margin-top: 40px; margin-bottom: 50px">
-    <div class="span10 offset1">
-        <h1>Administrador</h1>
-    </div>
-</div>
-{% endblock %}
+{% block extraNavbar %}
+         <div class="pull-right">
+         <p style="font-size: 18px; padding-top: 10px; color: #FFF; text-shadow: 1px 1px 0px #000;">Administrador</p>
+         </div>
+                {% endblock %}
