@@ -1,0 +1,203 @@
+#overlay
+{
+    height: 300;
+    width:600px;
+}
+#slider { /* Styles the <div> that contains everything slider related */
+	width:600px;
+	height:300px;
+	position:relative;
+	margin:40px auto 0;
+	background-color:#808080;
+	border:10px solid #838383;
+	-moz-transition:all 150ms ease-in;  /* Allows all property values to animate on hover. For information on transitions, check out: http://w3schools.com/css3/css3_transitions.asp */
+	-webkit-transition:all 150ms ease-in;
+	-o-transition:all 150ms ease-in;
+}
+#slider:hover { /* Since we added the transistion property to #slider <div>, the previous properties will now animate to these new properties on hover */
+	background-color:#fff;
+	border:10px solid #fff;
+}
+#slider:hover #pause { /* When we hover over #slider <div>, our #pause <div> will become visible - which will display the pause icon */
+	opacity:1;
+}
+#slider:hover #progress { /* When we hover over #slider <div>, the background color of our #progress <div> will become transparent. This will give the effect of the progress bar fading away on hover */
+	background-color:rgba(255,255,255,0.0);
+}
+
+#slider:hover ul, #slider:hover #progress, #slider:hover #overlay { /* When we hover over the unordered list <ul> inside of #slider <div> (the slides), all of our slide related animations will pause */
+	-moz-animation-play-state:paused;
+	-webkit-animation-play-state:paused;
+}
+#mask { /* Creates the mask */
+	overflow:hidden;
+}
+#pause { /* Styling our pause icon that appears when hovering over #slider <div> */
+	width:600px;
+	height:200px;
+	position:absolute;
+	top:0;
+	opacity:0;
+	background-image:url(../images/paused.png);
+	background-position:566px 10px;
+	background-repeat:no-repeat;
+	pointer-events:none; /* This not-so-well-known property is very nifty. Since the #pause <div> (along with other <div>'s - which also use this property) are laying ontop of the slides, we need to be able to "click through" them to the slides/content below. Without this property, there would be a massive sumo sitting on top of all your content - blocking it from the user's mouse. However, it currently seems that pointer-events will only work in FireFox, Safari, and Chrome (as of 11/4/11). For more information: https://developer.mozilla.org/en/CSS/pointer-events */
+	-moz-transition:all 150ms ease-in; /* This transition allows the #pause <div> to fade in when #slider <div> is hovered over */
+	-webkit-transition:all 150ms ease-in;
+	-o-transition:all 150ms ease-in;
+}
+#progress { /* The progress bar that will animate to the full width of the slide to show the duration of the slide */
+	width:1px;
+	height:1px;
+	position:relative;
+	top:-1px;
+	background-color:#ffd000;
+	-moz-transition:all 150ms linear; /* Transition allows #progress <div> to fade when #slider <div> is hovered over */
+	-webkit-transition:all 150ms linear;
+	-o-transition:all 150ms linear;
+	-moz-animation:progress 18s infinite; /* The progress animation will increase #progress's <div> width from 1px to the full width of the slide (600px) */
+	-webkit-animation:progress 18s infinite;
+}
+#overlay { /* Creates the cool gradient effect ontop of the slider */
+	width:600px;
+	height:300px;
+	position:absolute;
+	top:0;
+	background-image:url(../images/overlay.png);
+	background-position:center;
+	background-repeat:no-repeat;
+	pointer-events:none;
+	opacity:0.5;
+	-moz-animation:overlay-fade 18s infinite; /* The animation will fade #overlay <div> when the slider is finished */
+	-webkit-animation:overlay-fade 18s infinite;
+}
+#slider ul { /* Styling the unordered list <ul> that contains our slides <li>'s */
+	width:2400px; /* The calculated width of all the slides (4 slides x 600px in width) */
+	position:relative;
+	left:0px;
+	margin:0;
+	padding:0;
+	list-style:none;
+	-moz-animation:slide-animation 18s infinite; /* You can change the speed of the slide by changing the 18s. Make sure to update the speed of #overlay and #progress too. Keep in mind that this will also effect the speed of the transitions */
+	-webkit-animation:slide-animation 18s infinite;
+}
+#slider li { /* Styling the list elements <li>'s that contain each slide */
+	width:600px;
+	height:300px;
+	position:relative;
+	display:inline; /* This aligns the <li>'s horizontally so that the <ul> can scroll horizontally. By default, <li>'s align vertically */
+	float:left; /* Gets rid of mysterious spacing on the sides of the <li>'s */
+	margin:0;
+	padding:0;
+
+}
+#slider li span { /* Styling of the slider caption */
+	display:block;
+	width:560px;
+	position:absolute; 
+	bottom:0; 
+	left:0;
+	padding:15px 20px;
+	pointer-events:none; /* Allows people to "click through" the captions to the content below. If you'd like people to be able to interact with the content in the caption (highlight text, click special links, etc), then remove this property */
+	background-color:rgba(54,44,48,0.6);
+	border-top:1px solid #362c30;
+	text-shadow:1px 1px 1px #362c30;
+}
+#slider ul li span h2 { /* Styling of the slider caption */
+	font-size:20px;
+	line-height:30px;
+	font-weight:normal;
+	color:#fff;
+	text-shadow:1px 1px 1px #362c30;
+}
+#slider ul li span p { /* Styling of the slider's paragraphs */
+	font-size:14px;
+	line-height:20px;
+	font-weight:normal;
+	color:#fff;
+	text-shadow:1px 1px 1px #362c30;
+}
+@-webkit-keyframes slide-animation { /* Creates our animation that cycles through the slides for WebKit browsers. This is set up to cycle through 4 slides. If you plan on changing that number, you will have to divide 100 by the amount of slides and figure out the formula from there (while also changing the formulas for the progress and overlay-fade animations). Right now it's set up for each slide to take roughly 25% of the animation time. As you can see, this is where it can get a bit sticky changing the amount of slides. I'd suggest playing around with some basic animations first to get a handle on how they work. For an in depth explanation of animations, check out: http://www.w3schools.com/css3/css3_animations.asp */
+	0% {opacity:0;}
+	2% {opacity:1;}
+	20% {left:0px; opacity:1;}
+	22.5% {opacity:0.6;}
+	25% {left:-600px; opacity:1;}
+	45% {left:-600px; opacity:1;}
+	47.5% {opacity:0.6;}
+	50% {left:-1200px; opacity:1;}
+	70% {left:-1200px; opacity:1;}
+	72.5% {opacity:0.6;}
+	75% {left:-1800px; opacity:1;}
+	95% {opacity:1;}
+	98% {left:-1800px; opacity:0;} /* The slider fades all the way out before resetting. If it didn't fade out, you'd see all of the slides shoot through real quick on there way back to the beginning. */
+	100% {left:0px; opacity:0;}
+}
+@-moz-keyframes slide-animation { /* Creates the slide animation for FireFox */
+	0% {opacity:0;}
+	2% {opacity:1;}
+	20% {left:0px; opacity:1;}
+	22.5% {opacity:0.6;}
+	25% {left:-600px; opacity:1;}
+	45% {left:-600px; opacity:1;}
+	47.5% {opacity:0.6;}
+	50% {left:-1200px; opacity:1;}
+	70% {left:-1200px; opacity:1;}
+	72.5% {opacity:0.6;}
+	75% {left:-1800px; opacity:1;}
+	95% {opacity:1;}
+	98% {left:-1800px; opacity:0;}
+	100% {left:0px; opacity:0;}
+}
+@-webkit-keyframes progress { /* Animation for the progress bar in WebKit browsers */
+	0% {width:0px; opacity:0;}
+	2% {width:0px; opacity:1;}
+	20% {width:600px; opacity:1;}
+	22.5% {width:600px; opacity:0;}
+	22.59% {width:0px;}
+	25% {width:0px; opacity:1;}
+	45% {width:600px; opacity:1;}
+	47.5% {width:600px; opacity:0;}
+	47.59% {width:0px;}
+	50% {width:0px; opacity:1;}
+	70% {width:600px; opacity:1;}
+	72.5% {width:600px; opacity:0;}
+	72.59% {width:0px;}
+	75% {width:0px; opacity:1;}
+	95% {width:600px; opacity:1;}
+	98% {width:600px; opacity:0;}
+	100% {width:0px; opacity:0;}
+}
+@-moz-keyframes progress { /* Animation for the progress bar in FireFox */
+	0% {width:0px; opacity:0;}
+	2% {width:0px; opacity:1;}
+	20% {width:600px; opacity:1;}
+	22.5% {width:600px; opacity:0;}
+	22.59% {width:0px;}
+	25% {width:0px; opacity:1;}
+	45% {width:600px; opacity:1;}
+	47.5% {width:600px; opacity:0;}
+	47.59% {width:0px;}
+	50% {width:0px; opacity:1;}
+	70% {width:600px; opacity:1;}
+	72.5% {width:600px; opacity:0;}
+	72.59% {width:0px;}
+	75% {width:0px; opacity:1;}
+	95% {width:600px; opacity:1;}
+	98% {width:600px; opacity:0;}
+	100% {width:0px; opacity:0;}
+}
+@-webkit-keyframes overlay-fade { /* This animation fades #overlay <div> (the gradient on top of the slider) when the slide comes to an end on WebKit browsers */
+	0% {opacity:0;}
+	2% {opacity:0.5;}
+	95% {opacity:0.5;}
+	98% {opacity:0;}
+	100% {opacity:0;}
+}
+@-moz-keyframes overlay-fade { /* Fades #overlay for FireFox */
+	0% {opacity:0;}
+	2% {opacity:0.5;}
+	95% {opacity:0.5;}
+	98% {opacity:0;}
+	100% {opacity:0;}
+}

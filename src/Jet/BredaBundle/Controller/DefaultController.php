@@ -22,7 +22,9 @@ class DefaultController extends Controller
             ->setFirstResult(0);
         $destacados = $q->getResult();
 
-        return array('destacados' => $destacados);
+        $slider = $em->getRepository('JetBredaBundle:Slider')->findAll();
+
+        return array('destacados' => $destacados, 'slider' => $slider);
     }
 
     /**

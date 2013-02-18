@@ -1,89 +1,138 @@
-{% extends '::base.html.twig'%}
+{% extends '::base.html.twig' %}
 {% set active = 'index' %}
+{% block extra %}
+    <link href="{{ asset('bundles/jetbreda/slider/css/slider.css')}}" rel="stylesheet">
+    <script type="text/javascript" src="{{ asset('bundles/jetbreda/slider') }}"
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#myCarousel").carousel({
+                interval: false
+            });
+        });
+    </script>
+{% endblock %}
 {% block secondHeader %}
-          <div class="row">
-          	<div class="span9" style="">
-          	
-          	<div class="smallslider visible-phone">
-       <div id="myCarousel" class="carousel slide">
-            <div class="carousel-inner">
-              <div class="item active">
-                <img width="410px" src="{{ asset('bundles/jetbreda/assets/slide1_small.png') }}" alt="">
-                
-              </div>
-              <div class="item">
-                <img width="410px" src="{{ asset('bundles/jetbreda/assets/slide2_small.png') }}" alt="">
-               
-              </div>
-            <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-            <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
-          </div>
-          
-          </div>
-          
+    <div class="row">
+        <div class="span9" style="">
+
+            <div id="slider">
+                <div id="mask">
+                    <ul>
+                        {% for slide in slider %}
+                        <li class="item active">
+                            <a href="#" title="Construcciones breda">
+                            <img src="{{ asset(slide.webPath) }}" alt="Construcciones breda" height="300px" style="max-height: 300px">
+                            </a>
+
+                        </li>
+                        {% endfor %}
+
+                    </ul><!-- Ends the unordered list that contains our slides -->
+                </div><!-- Ends the slider mask. Everything outside of this tag will no longer be masked -->
+                <div id="progress"><!-- Sets up our progress bar to show the remaining time of the current slide. This will be animated to go from 1px wide to the full width of the slide (600px) -->
+                </div>
+
+                <div id="pause"><!-- This contains the pause icon that appears when hovering over the slider. Again, if you don't want the icon to appear, simply remove this <div> -->
+                </div>
+            </div>
+            {#
+            <div class="smallslider visible-phone">
+                <div id="myCarousel" class="carousel slide">
+
+                    <div class="carousel-inner">
+                        {% for slide in slider %}
+                            <div class="item active">
+                                <img width="410px" style="max-height: 410px; width: 410px" src="{{ asset(slide.webPath) }}" alt="Construcciones breda">
+
+                            </div>
+                        {% else %}
+                            <div class="item active">
+                                <img width="410px" src="{{ asset('bundles/jetbreda/assets/slide1_small.png') }}" alt="">
+
+                            </div>
+                            <div class="item">
+                                <img width="410px" src="{{ asset('bundles/jetbreda/assets/slide2_small.png') }}" alt="">
+
+                            </div>
+                        {% endfor %}
+
+                        <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+                        <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="bigslider hidden-phone">
+                <div id="myCarousel2" class="carousel slide">
+                    <div class="carousel-inner">
+                        {% for slide in slider %}
+                            <div class="item {% if loop.index == 0 %}active{% endif %}">
+                                <img width="410px" src="{{ asset(slide.webPath) }}" alt="Construcciones breda">
+
+                            </div>
+                        {% else %}
+                            <div class="item active">
+                                <img width="410px" src="{{ asset('bundles/jetbreda/assets/slide1_small.png') }}" alt="">
+
+                            </div>
+                            <div class="item">
+                                <img width="410px" src="{{ asset('bundles/jetbreda/assets/slide2_small.png') }}" alt="">
+
+                            </div>
+                        {% endfor %}
+                        <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+                        <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+                    </div>
+
+                </div>
+            </div>
+            #}
+
         </div>
-    <div class="bigslider hidden-phone">
-       <div id="myCarousel2" class="carousel slide">
-            <div class="carousel-inner">
-              <div class="item active">
-                <img src="{{ asset('bundles/jetbreda/assets/slide1_small.png') }}" alt="">
-                
-              </div>
-              <div class="item">
-                <img src="{{ asset('bundles/jetbreda/assets/slide2_small.png') }}" alt="">
-               
-              </div>
-            <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-            <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
-          </div>
-          
-          </div>
+
+        <div class="span2" style="padding: 20px">
+
+            <h2>Naves, oficinas y pisos</h2>
+
+            <p class="story">Nuestros productos se sitúan principalmente en el baix llobregat y alrededores.</p>
+
+
+        </div>
     </div>
-          
-          
-          	</div>
-          	
-          	<div class="span2" style="padding: 20px">
-          		
-          		<h2>Naves, oficinas y pisos</h2>
-          		 <p class="story">Nuestros productos se sitúan principalmente en el baix llobregat y alrededores.</p>
-          		
-          		
-          	</div>
-          </div>
-          <br><br>
-          <div class="row mkt" style="margin-top: 40px">
-          	<div class="span1" style="padding-top: 35px"><p style="font-size:50px" class="icon-inbox"></p></div>
-          	<div class="span3">
-          	<h3>Naves</h3>
-          	<hr>
-          	<p>
-          	Naves en el baix Llobregat, de 500m2 a 5500m2
-          	</p>
-          	</div>
-          	<div class="span1" style="padding-top: 35px;"><p style="font-size:50px" class="icon-briefcase"></p></div>
-          	<div class="span3">
-          	<h3>Oficinas</h3>
-          	<hr>
-          	<p>
-          	Oficinas en Barcelona, de 100m2 a 150m2
-          	</p>
-          	</div>
-          	<div class="span1" style="padding-top: 35px"><p style="font-size:50px" class="icon-home"></p></div>
-          	          	<div class="span3">
-          	<h3>Pisos</h3>
-          	<hr>
-          	<p>
-          	Pisos en Barcelona, de 70m2 a 150m2
-          	</p>
-          	</div>
-          </div>
+    <br><br>
+    <div class="row mkt" style="margin-top: 40px">
+        <div class="span1" style="padding-top: 35px"><p style="font-size:50px" class="icon-inbox"></p></div>
+        <div class="span3">
+            <h3>Naves</h3>
+            <hr>
+            <p>
+                Naves en el baix Llobregat, de 500m2 a 5500m2
+            </p>
+        </div>
+        <div class="span1" style="padding-top: 35px;"><p style="font-size:50px" class="icon-briefcase"></p></div>
+        <div class="span3">
+            <h3>Oficinas</h3>
+            <hr>
+            <p>
+                Oficinas en Barcelona, de 100m2 a 150m2
+            </p>
+        </div>
+        <div class="span1" style="padding-top: 35px"><p style="font-size:50px" class="icon-home"></p></div>
+        <div class="span3">
+            <h3>Pisos</h3>
+            <hr>
+            <p>
+                Pisos en Barcelona, de 70m2 a 150m2
+            </p>
+        </div>
+    </div>
 
 
 
-        {% endblock %}
+{% endblock %}
 
-          {% block container %}
+{% block container %}
     <br><br><br>
 
     <h2>Productos destacados</h2>
@@ -92,37 +141,39 @@
         {% for entity in destacados %}
 
 
-    <div class="span5 grey-box" style="margin-left: 80px">
-                <h3 style="padding: 8px;">{{ entity.titulo }}</h3><hr style="margin: 0px;">
-        <div class="span2" style="margin: 5px;">
-            <a class="thumbnail" href="{{ path('alquiler', {'id': entity.id}) }}">
-                {%  if entity.fotos is not empty %}
-                    <img src="{{ asset(entity.fotos.0.webPath)}}" width="100%">
-                {%  else  %}
-                             <h6>No foto</h6>
-                {%  endif %}
-            </a>
-                                    <a class="btn btn-block btn-primary btn-small" href="{{ path('alquiler', {'id': entity.id}) }}"><b class="icon icon-search"></b> Ver</a>
+            <div class="span5 grey-box" style="margin-left: 80px">
+                <h3 style="padding: 8px;">{{ entity.titulo }}</h3>
+                <hr style="margin: 0px;">
+                <div class="span2" style="margin: 5px;">
+                    <a class="thumbnail" href="{{ path('alquiler', {'id': entity.id}) }}">
+                        {% if entity.fotos is not empty %}
+                            <img src="{{ asset(entity.fotos.0.webPath) }}" width="100%">
+                        {% else %}
+                            <h6>No foto</h6>
+                        {% endif %}
+                    </a>
+                    <a class="btn btn-block btn-primary btn-small" href="{{ path('alquiler', {'id': entity.id}) }}"><b
+                            class="icon icon-search"></b> Ver</a>
 
 
-        </div>
-        <div class="span2" style="width: 220px; overflow:hidden; height: 120px">
-        {{ entity.descipcion|raw }}
-        </div>
-        <div style="clear:both"></div>
-    </div>
+                </div>
+                <div class="span2" style="width: 220px; overflow:hidden; height: 120px">
+                    {{ entity.descipcion|raw }}
+                </div>
+                <div style="clear:both"></div>
+            </div>
 
 
-        
+
         {% else %}
-        <b>No hay productos descatados</b>
+            <b>No hay productos descatados</b>
         {% endfor %}
     </div>
-<div style="clear:both; margin-bottom:30px"></div>
+    <div style="clear:both; margin-bottom:30px"></div>
 
 {% endblock %}
 
 
-  {% block background %}
-  	<div class="background"></div>
-  {% endblock %}
+{% block background %}
+    <div class="background"></div>
+{% endblock %}

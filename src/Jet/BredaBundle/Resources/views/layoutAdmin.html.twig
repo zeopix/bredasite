@@ -2,6 +2,7 @@
 {% block background %}{% endblock %}
 {% block menuHeader %}
 <li {% if active == 'alquiler' %}class="active"{% endif %}><a href="{{ path('admin_alquiler')}}">Alquileres</a></li>
+<li {% if active == 'home' %}class="active"{% endif %}><a href="{{ path('admin_home')}}">Pagina de inicio</a></li>
 
 {% endblock %}
 

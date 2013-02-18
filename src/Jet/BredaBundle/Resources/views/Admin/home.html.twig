@@ -1,0 +1,38 @@
+{% extends 'JetBredaBundle::layoutAdmin.html.twig'%}
+
+{% set active = "home"%}
+
+{% block container%}
+<div class="row">
+    <div class="span10 offset1">
+        <h1>Presentación de imágenes</h1>
+
+        <h3>Imágenes cargadas</h3>
+        <table class="table table-stripped">
+            {% for entity in entities %}
+                <tr>
+                    <td>
+                       <img class="span5" src="{{ asset(entity.webPath) }}">
+
+                    </td>
+                    <td>
+                        <a href="{{ path('admin_delete_slider', {'id': entity.id}) }}" class="btn btn-danger btn-large pull-right">Eliminar</a>
+                    </td>
+                </tr>
+            {% else %}
+                <caption>No hay imágenes</caption>
+            {% endfor %}
+        </table>
+
+        <hr>
+        <form method="post" {{ form_enctype(form) }}>
+            <fieldset>
+                <legend>Cargar imágen</legend>
+                <label>Imágen</label>
+                 {{ form_widget(form.file) }}
+                <span class="help-block">Selecciona una imágen para cargar.</span>
+                {{ form_widget(form) }}
+                <input type="submit" class="btn" value="Cargar">
+            </fieldset>
+        </form>
+{% endblock %}
