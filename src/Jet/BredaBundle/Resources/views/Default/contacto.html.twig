@@ -7,49 +7,49 @@
 <form class="form-horizontal" style="margin-top: 50px">
 
     <fieldset>
-        <legend>Formulario de contacto</legend>
-        <h4>Se ha enviado un email con tu información de contacto a <a href="mailto:info@construccionesbreda.com">info@construccionesbreda.com</a>, nos pondremos en contacto contigo para ofrecerte más información lo antes posible.</h4>
-        <h5>Gracias.</h5>
+        <legend>{% trans %}Formulario de contacto{% endtrans %}</legend>
+        <h4>{% trans %}Se ha enviado un email con tu información de contacto a{% endtrans %} <a href="mailto:info@construccionesbreda.com">info@construccionesbreda.com</a>, {% trans %}nos pondremos en contacto contigo para ofrecerte más información lo antes posible{% endtrans %}.</h4>
+        <h5>{% trans %}Gracias{% endtrans %}.</h5>
     </fieldset>
 <form>
 {% else %}
 <form class="form-horizontal" style="margin-top: 50px" method="POST" action="{{ path('contacto') }}">
 
     <fieldset>
-        <legend>Formulario de contacto</legend>
+        <legend>{% trans %}Formulario de contacto{% endtrans %}</legend>
         <div class="control-group">
-            <label class="control-label" for="nombre">Persona de Contacto</label>
+            <label class="control-label" for="nombre">{% trans %}Persona de Contacto{% endtrans %}</label>
 
             <div class="controls">
                 {{form_widget(form.persona)}}
 
-                <p class="help-block"><i>Obligatorio</i> (Nombre y Apellidos)</p>
+                <p class="help-block"><i>{% trans %}Obligatorio{% endtrans %}</i> ({% trans %}Nombre y Apellidos{% endtrans %})</p>
             </div>
         </div>
 
         <div class="control-group">
-            <label class="control-label" for="email">Correo electrónico</label>
+            <label class="control-label" for="email">{% trans %}Correo electrónico{% endtrans %}</label>
 
             <div class="controls">
                 {{form_widget(form.email)}}
 
-                <p class="help-block"><i>Obligatorio</i></p>
+                <p class="help-block"><i>{% trans %}Obligatorio{% endtrans %}</i></p>
             </div>
         </div>
 
         <div class="control-group">
-            <label class="control-label" for="nombre">Teléfono de contacto</label>
+            <label class="control-label" for="nombre">{% trans %}Teléfono de contacto{% endtrans %}</label>
 
             <div class="controls">
                 {{form_widget(form.telefono)}}
 
-                <p class="help-block"><i>Obligatorio</i></p>
+                <p class="help-block"><i>{% trans %}Obligatorio{% endtrans %}</i></p>
             </div>
         </div>
 
 
         <div class="control-group">
-            <label class="control-label" for="textarea">Consulta</label>
+            <label class="control-label" for="textarea">{% trans %}Consulta{% endtrans %}</label>
 
             <div class="controls">
                 {{form_widget(form.consulta)}}
@@ -58,7 +58,7 @@
         <div class="control-group">
             <label class="control-label" for="check"></label>
             <div class="controls">
-                <input type="checkbox" id="formCheckbox" value="true"> <span>He leído y acepto los <a target="_blank" href="{{ asset('bundles/jetbreda/terms_of_use.pdf') }}">Términos y Condiciones</a>.</span>
+                <input type="checkbox" id="formCheckbox" value="true"> <span>{% trans %}He leído y acepto los{% endtrans %} <a target="_blank" href="{{ asset('bundles/jetbreda/terms_of_use.pdf') }}">{% trans %}Términos y Condiciones{% endtrans %}</a>.</span>
             </div>
         </div>
         <script>
@@ -74,7 +74,7 @@
         </script>
         {{form_rest(form)}}
         <div class="form-actions">
-            <button id="submitButton" type="submit" disabled="disabled" class="btn btn-primary">Enviar formulario</button>
+            <button id="submitButton" type="submit" disabled="disabled" class="btn btn-primary">{% trans %}Enviar formulario{% endtrans %}</button>
 
         </div>
     </fieldset>
@@ -83,15 +83,15 @@
 </div>
 <div class="span2" style="padding: 30px; padding-top: 50px">
 	    		<img src="{{ asset('bundles/jetbreda/img/breda.png') }}"><br>
-<b>Dirección:</b>
+<b>{% trans %}Dirección{% endtrans %}:</b>
 <p class="pull-right">C/ Riera Sant Miquel nº 3 s/atico 1ª</p>
 <div style="clear:both; padding-top: 10px;"></div>
-<b>Horario comercial:</b> 
-<p class="pull-right">9:00h - 13:30h</p>
+<b>{% trans %}Horario comercial{% endtrans %}:</b> 
+<p class="pull-right">{% trans %}9:00h - 13:30h{% endtrans %}</p>
 <div style="clear:both; padding-top: 10px;"></div>
-<b>Telefono Fijo:</b> 
+<b>{% trans %}Telefono Fijo{% endtrans %}:</b> 
 <p class="pull-right">93 218 00 40</p>
-<b>Fax:</b> 
+<b>{% trans %}Fax{% endtrans %}:</b> 
 <p class="pull-right">93 218 00 41</p>
 <div style="clear:both; padding-top: 10px;"></div>
 </div>

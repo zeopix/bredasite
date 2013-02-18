@@ -1,0 +1,11 @@
+{% extends '::base.html.twig' %}
+{% block menuHeader %}
+                        <li {% if active == 'index' %}class="active"{% endif %}><a
+                                href="{{ path('index')}}">{% trans %}Destacados{% endtrans %}</a></li>
+                        <li {% if active == 'alquiler' %}class="active"{% endif %}><a href="{{ path('alquileres')}}">{% trans %}Alquileres{% endtrans %}</a>
+                        </li>
+                        <li {% if active == 'nosotros' %}class="active"{% endif %}><a href="{{ path('nosotros')}}">{% trans %}Sobre Nosotros{% endtrans %}</a></li>
+                        <li {% if active == 'contacto' %}class="active"{% endif %}><a href="{{ path('contacto')}}">{% trans %}Contacto{% endtrans %}</a>
+                        </li>
+
+                        {% endblock %}

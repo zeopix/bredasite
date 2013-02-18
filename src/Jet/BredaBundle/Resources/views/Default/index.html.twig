@@ -93,9 +93,9 @@
 
         <div class="span2" style="padding: 20px">
 
-            <h2>Naves, oficinas y pisos</h2>
+            <h2>{% trans %}Naves, oficinas y pisos{% endtrans %}</h2>
 
-            <p class="story">Nuestros productos se sitúan principalmente en el baix llobregat y alrededores.</p>
+            <p class="story">{% trans %}Nuestros productos se sitúan principalmente en el baix llobregat y alrededores.{% endtrans %}</p>
 
 
         </div>
@@ -104,26 +104,26 @@
     <div class="row mkt" style="margin-top: 40px">
         <div class="span1" style="padding-top: 35px"><p style="font-size:50px" class="icon-inbox"></p></div>
         <div class="span3">
-            <h3>Naves</h3>
+            <h3>{% trans %}Naves{% endtrans %}</h3>
             <hr>
             <p>
-                Naves en el baix Llobregat, de 500m2 a 5500m2
+                {% trans %}Naves en el baix Llobregat, de 500m2 a 5500m2{% endtrans %}
             </p>
         </div>
         <div class="span1" style="padding-top: 35px;"><p style="font-size:50px" class="icon-briefcase"></p></div>
         <div class="span3">
-            <h3>Oficinas</h3>
+            <h3>{% trans %}Oficinas{% endtrans %}</h3>
             <hr>
             <p>
-                Oficinas en Barcelona, de 100m2 a 150m2
+                {% trans %}Oficinas en Barcelona, de 100m2 a 150m2{% endtrans %}
             </p>
         </div>
         <div class="span1" style="padding-top: 35px"><p style="font-size:50px" class="icon-home"></p></div>
         <div class="span3">
-            <h3>Pisos</h3>
+            <h3>{% trans %}Pisos{% endtrans %}</h3>
             <hr>
             <p>
-                Pisos en Barcelona, de 70m2 a 150m2
+                {% trans %}Pisos en Barcelona, de 70m2 a 150m2{% endtrans %}
             </p>
         </div>
     </div>
@@ -135,7 +135,7 @@
 {% block container %}
     <br><br><br>
 
-    <h2>Productos destacados</h2>
+    <h2>{% trans %}Productos destacados{% endtrans %}</h2>
     <hr>
     <div class="row">
         {% for entity in destacados %}
@@ -149,7 +149,7 @@
                         {% if entity.fotos is not empty %}
                             <img src="{{ asset(entity.fotos.0.webPath) }}" width="100%">
                         {% else %}
-                            <h6>No foto</h6>
+                            <h6>{% trans %}No foto{% endtrans %}</h6>
                         {% endif %}
                     </a>
                     <a class="btn btn-block btn-primary btn-small" href="{{ path('alquiler', {'id': entity.id}) }}"><b

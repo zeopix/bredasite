@@ -9,7 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/", name="index")
+     * @Route("/{_locale}", name="index", defaults={"_locale"="es"})
      * @Template()
      */
     public function indexAction()
@@ -28,7 +28,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/Alquiler/{id}", name="alquiler")
+     * @Route("/{_locale}/Alquiler/{id}", name="alquiler", defaults={"_locale"="es"})
      * @Template()
      */
     public function alquilerAction($id)
@@ -41,7 +41,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/Alquileres/{type}/{order}", name="alquileres", defaults={"type"="nave","order"="ASC"})
+     * @Route("/{_locale}/Alquileres/{type}/{order}", name="alquileres", defaults={"_locale"="es","type"="nave","order"="ASC"})
      * @Template()
      */
     public function alquileresAction($type,$order)
@@ -59,7 +59,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/Contacto", name="contacto")
+     * @Route("/{_locale}/Contacto", name="contacto", defaults={"_locale"="es"})
      * @Template()
      */
     public function contactoAction()
@@ -93,7 +93,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/Clientes", name="clientes")
+     * @Route("/Clientes", name="clientes", defaults={"_locale"="es"})
      * @Template()
      */
     public function clientesAction()
@@ -102,7 +102,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/Nosotros", name="nosotros")
+     * @Route("/{_locale}/Nosotros", name="nosotros", defaults={"_locale"="es"})
      * @Template()
      */
     public function nosotrosAction()

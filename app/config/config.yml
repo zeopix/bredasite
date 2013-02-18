@@ -65,3 +65,7 @@ services:
      class: Twig_Extensions_Extension_Text
      tags:
          - { name: twig.extension }
+ bcc.twig.extension:
+     class: BCC\ExtraToolsBundle\Twig\TwigExtension
+     tags:
+         -  { name: twig.extension }
