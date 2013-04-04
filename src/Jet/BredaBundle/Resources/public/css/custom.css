@@ -101,3 +101,6 @@ box-shadow: 0 1px 3px #CCCCCC;
 .span4 .content { float:left; width: 160px; float: left; margin: 10px;}
 .span8 .image { float:left; width: 205px; float: left;}
 .span8 .content { float:left; width: 380px; float: left; margin: 10px;}
+.nav li a{
+	color: white;
+}
