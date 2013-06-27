@@ -1,57 +1,74 @@
-Descripción: Descripción
-Detalles: Detalles
-Superficie: Superficie
-Población: Población
-Dirección: Dirección
-Tipo: Tipo
-'Información Adicional': 'Información Adicional'
-'Galería de fotos': 'Galería de fotos'
-Galeria: Galeria
-Cerrar: Cerrar
-Información: Información
-'No has añadido ninguna foto': 'No has añadido ninguna foto'
-'Volver Atrás': 'Volver Atrás'
-Naves: Naves
-Locales: Locales
-Pisos: Pisos
-'De mayor a menor Superficie': 'De mayor a menor Superficie'
-'De menor a mayor Superficie': 'De menor a mayor Superficie'
-'No foto': 'No foto'
-'Ampliar detalles': 'Ampliar detalles'
-'Sección en Obras!': 'Sección en Obras!'
-'Actualmente, estamos trabajando para actualizar el contenido de esta sección, si tienes alguna duda o sugerencia, contacta con nosotros a través de la': 'Actualmente, estamos trabajando para actualizar el contenido de esta sección, si tienes alguna duda o sugerencia, contacta con nosotros a través de la'
-'página de contacto': 'página de contacto'
-Gracias: Gracias
-'Formulario de contacto': 'Formulario de contacto'
-'Se ha enviado un email con tu información de contacto a': 'Se ha enviado un email con tu información de contacto a'
-'nos pondremos en contacto contigo para ofrecerte más información lo antes posible': 'nos pondremos en contacto contigo para ofrecerte más información lo antes posible'
-'Persona de Contacto': 'Persona de Contacto'
-Obligatorio: Obligatorio
-'Nombre y Apellidos': 'Nombre y Apellidos'
-'Correo electrónico': 'Correo electrónico'
-'Teléfono de contacto': 'Teléfono de contacto'
-Consulta: Consulta
-'He leído y acepto los': 'He leído y acepto los'
-'Términos y Condiciones': 'Términos y Condiciones'
-'Enviar formulario': 'Enviar formulario'
-'Horario comercial': 'Horario comercial'
-'9:00h - 13:30h': '9:00h - 13:30h'
-'Telefono Fijo': 'Telefono Fijo'
-Fax: Fax
-'Naves, oficinas y pisos': 'Naves, oficinas y pisos'
-'Nuestros productos se sitúan principalmente en el baix llobregat y alrededores.': 'Nuestros productos se sitúan principalmente en el baix llobregat y alrededores.'
-'Naves en el baix Llobregat, de 500m2 a 5500m2': 'Naves en el baix Llobregat, de 500m2 a 5500m2'
-Oficinas: Oficinas
-'Oficinas en Barcelona, de 100m2 a 150m2': 'Oficinas en Barcelona, de 100m2 a 150m2'
-'Pisos en Barcelona, de 70m2 a 150m2': 'Pisos en Barcelona, de 70m2 a 150m2'
-'Productos destacados': 'Productos destacados'
-Destacados: Destacados
-Alquileres: Alquileres
-'Sobre Nosotros': 'Sobre Nosotros'
-Contacto: Contacto
-'fundada en 1989 que en la actualidad se dedica a': 'fundada en 1989 que en la actualidad se dedica a'
-'La promoción y alquiler de naves industriales en el Baix Llobregat, en poligonos industriales muy bien comunicados.': 'La promoción y alquiler de naves industriales en el Baix Llobregat, en poligonos industriales muy bien comunicados.'
-' Nuestras naves tienen distintas superficies: desde 500 a 5500m2, incluyendo planta baja y altillo. La altura mínima es de 10m': ' Nuestras naves tienen distintas superficies: desde 500 a 5500m2, incluyendo planta baja y altillo. La altura mínima es de 10m'
-'El alquiler de oficinas comerciales en zona de negocios de Barcelona. Superficies de 105 a 130m2 con plaza de parking.': 'El alquiler de oficinas comerciales en zona de negocios de Barcelona. Superficies de 105 a 130m2 con plaza de parking.'
-' La rehabilitación y venta de pisos situados en el casco antiguo de Sarriá (Barcelona)': ' La rehabilitación y venta de pisos situados en el casco antiguo de Sarriá (Barcelona)'
-'Nuestros Clientes': 'Nuestros Clientes'
+menu.header.destacados: 'Destacados'
+menu.header.alquileres: 'Alquileres'
+menu.header.nosotros: 'Sobre nosotros'
+menu.header.contacto: 'Contacto'
+menu.header.home: 'Inicio'
+
+alquiler.detalles: 'Detalles'
+alquiler.description: 'Descripción'
+alquiler.superfice: 'Superficie'
+alquiler.poblacion: 'Dirección'
+alquiler.tipo: 'Tipo'
+alquiler.direccion: 'Dirección'
+alquiler.aditionalinfo: 'Información Adicional'
+alquiler.gallery: 'Galería de fotos'
+alquiler.modal.gallery: 'Galeria'
+alquiler.modal.close: 'Cerrar'
+alquiler.gallery.information: 'Información'
+alquiler.gallery.nofoto: 'No existen fotos'
+alquiler.gallery.nofoto.back: 'Volver Atrás'
+
+
+index.begin.title: "Naves, oficinas y pisos"
+index.begin.subtitle: "Nuestros productos se sitúan principalmente en el baix llobregat y alrededores."
+index.block1.title: "Naves"
+index.block1.subtitle: "Naves en el Baix Llobregat, de 500m2 a 5500m2"
+index.block2.title: "Oficinas"
+index.block2.subtitle: "Oficinas en Barcelona, de 100m2 a 150m2"
+index.block3.title: "Pisos"
+index.block3.subtitle: "Pisos en Barcelona, de 70m2 a 150m2"
+index.products.title: "Productos destacados"
+index.products.noproducts: "No hay productos descatados"
+
+contact.todoOk.1: 'Formulario de contacto'
+contact.todoOk.2: 'Se ha enviado un email con tu información de contacto a'
+contact.todoOk.3: 'nos pondremos en contacto contigo para ofrecerte más información lo antes posible'
+contact.todoOk.4: 'Gracias'
+
+contact.form.block1.title: 'Persona de Contacto'
+contact.form.block1.helper.obligatorio: 'Obligatorio'
+contact.form.block1.helper2: 'Nombre y Apellidos'
+contact.form.block2.title: 'Correo electrónico'
+contact.form.block3.title: 'Teléfono de contacto'
+contact.form.block4.title: 'Consulta'
+contact.terms.1: "He leído y acepto los"
+contact.terms.2: 'Términos y Condiciones'
+contact.form.submit: 'Enviar formulario'
+contact.info.direction.title: 'Dirección'
+contact.info.direction.content: 'C/ Riera Sant Miquel nº 3 s/atico 1ª'
+contact.info.horary.title: 'Horario comercial'
+contact.info.horary.content: '9:00h - 15:00h'
+contact.info.phone.title: 'Telefono Fijo y fax'
+
+nosotros.title: 'Sobre nosotros'
+nosotros.subtitle1: 'Construcciones Breda S.L.'
+nosotros.subtitle2: 'fundada en 1989 que en la actualidad se dedica a'
+nosotros.content1.1: 'La promoción y alquiler de naves industriales en el Baix Llobregat, en poligonos industriales muy bien comunicados.'
+nosotros.content1.2: 'Nuestras naves tienen distintas superficies: desde 500 a 5500m2, incluyendo planta baja y altillo. La altura mínima es de 10m'
+nosotros.content2: 'El alquiler de oficinas comerciales en zona de negocios de Barcelona. Superficies de 105 a 130m2 con plaza de parking.'
+nosotros.content3: 'La rehabilitación y venta de pisos situados en el casco antiguo de Sarriá (Barcelona)'
+nosotros.ourclients: 'Nuestros Clientes'
+
+
+alquileres.navigator.naves: 'Naves'
+alquileres.navigator.despachos: 'Despachos'
+alquileres.navigator.pisos: 'Pisos'
+alquileres.navigator.orden: 'Orden'
+alquileres.navigator.orden1: 'De mayor a menor Superficie'
+alquileres.navigator.orden2: 'De menor a mayor Superficie'
+alquileres.alquiler.superficie: 'Supercifie'
+alquileres.alquiler.more: 'Ampliar detalles'
+alquileres.alquiler.obras.title: 'Sección en Obras!'
+alquileres.alquiler.obras.content: 'Actualmente, estamos trabajando para actualizar el contenido de esta sección, si tienes alguna duda o sugerencia, contacta con nosotros a través de la'
+alquileres.alquiler.obras.content2: 'página de contacto'
+alquileres.ty: 'Gracias'

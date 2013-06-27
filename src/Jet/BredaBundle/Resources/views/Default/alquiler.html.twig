@@ -8,17 +8,17 @@
 		<h1>{{ entity.titulo }}</h1>
 		<hr>
 		<div class="span7">
-		<h6>{% trans %}Descripción{% endtrans %}</h6>
+		<h6>{% trans %}alquiler.description{% endtrans %}</h6>
 		{{ entity.descipcion|raw }}<br>
 		</div>
 		<div class="span2">
-		<h6>{% trans %}Detalles{% endtrans %}</h6>
-		<b>{% trans %}Superficie{% endtrans %}:</b> {{ entity.superficie }}<br>
-		<b>{% trans %}Población{% endtrans %}:</b> {{ entity.poblacion }}, {{ entity.postal }}<br>
-		<b>{% trans %}Dirección{% endtrans %}:</b> {{ entity.direccion }}
+		<h6>{% trans %}alquiler.detalles{% endtrans %}</h6>
+		<b>{% trans %}alquiler.superficie{% endtrans %}:</b> {{ entity.superficie }}<br>
+		<b>{% trans %}alquiler.poblacion{% endtrans %}:</b> {{ entity.poblacion }}, {{ entity.postal }}<br>
+		<b>{% trans %}alquiler.direccion{% endtrans %}:</b> {{ entity.direccion }}<br>
 		<b>{% trans %}Tipo{% endtrans %}:</b> {{ entity.tipo }}<br>
 		{% if entity.extra is not null %}<br><br>
-        <h6>{% trans %}Información Adicional{% endtrans %}</h6>
+        <h6>{% trans %}alquiler.aditionalinfo{% endtrans %}</h6>
         {{ entity.extra|raw }}
         {% endif %}
 		</div>
@@ -35,7 +35,7 @@
 <div class="row" style="margin-top: 40px;">
 
     <div class="span10 offset1">
-        <h3>{% trans %}Galería de fotos{% endtrans %}</h3><hr>
+        <h3>{% trans %}alquiler.gallery{% endtrans %}</h3><hr>
         {% if entity.fotos is not empty %}
         <div style="text-align:center">
         {% for foto in entity.fotos %}
@@ -47,13 +47,13 @@
             <div id="imagen{{ foto.id }}" class="modal gallery hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                        <h3 id="myModalLabel">{% trans %}Galeria{% endtrans %}: {{  foto.descripcion }}</h3>
+                        <h3 id="myModalLabel">{% trans %}alquiler.modal.gallery{% endtrans %}: {{  foto.descripcion }}</h3>
                     </div>
                     <div class="modal-body my">
                         <p><img  src="{{ asset(foto.webPath) }}" title="{{ entity.poblacion }}"></p>
                     </div>
                     <div class="modal-footer">
-                        <button class="btn" data-dismiss="modal" aria-hidden="true">{% trans %}Cerrar{% endtrans %}</button>
+                        <button class="btn" data-dismiss="modal" aria-hidden="true">{% trans %}alquiler.modal.close{% endtrans %}</button>
 
                     </div>
             </div>
@@ -65,7 +65,7 @@
         
         {% else %}
         <div class="alert alert-info">
-            <strong>{% trans %}Información{% endtrans %}!</strong> {% trans %}No has añadido ninguna foto{% endtrans %}
+            <strong>{% trans %}alquiler.gallery.information{% endtrans %}!</strong>  {% trans %}alquiler.gallery.nofoto{% endtrans %}
         </div>
         {% endif %}
     </div>
@@ -73,7 +73,7 @@
 </div>
 	<br>
 	<center>
-	<a class="btn btn-primary" href="{{ path('alquileres') }}">{% trans %}Volver Atrás{% endtrans %}</a>
+	<a class="btn btn-primary" href="{{ path('alquileres') }}">{% trans %}alquiler.gallery.back{% endtrans %}</a>
 	</center>
 <div style="padding-top: 40px;"></div>
 

@@ -76,12 +76,11 @@
                     <ul class="nav">
                         {% block menuHeader %}
                         <li {% if active == 'index' %}class="active"{% endif %}><a
-                                href="{{ path('index')}}">Destacados</a></li>
-                        <li {% if active == 'alquiler' %}class="active"{% endif %}><a href="{{ path('alquileres')}}">Alquileres</a>
+                                href="{{ path('index')}}">{%trans%}menu.header.home{%endtrans%}</a></li>
+                        <li {% if active == 'alquiler' %}class="active"{% endif %}><a href="{{ path('alquileres')}}">{% trans %}menu.header.alquileres{%endtrans%}</a>
                         </li>
-                        <li {% if active == 'nosotros' %}class="active"{% endif %}><a href="{{ path('nosotros')}}">Sobre
-                            Nosotros</a></li>
-                        <li {% if active == 'contacto' %}class="active"{% endif %}><a href="{{ path('contacto')}}">Contacto</a>
+                        <li {% if active == 'nosotros' %}class="active"{% endif %}><a href="{{ path('nosotros')}}">{%trans%}menu.header.nosotros{%endtrans%}</a></li>
+                        <li {% if active == 'contacto' %}class="active"{% endif %}><a href="{{ path('contacto')}}">{%trans%}menu.header.contacto{%endtrans%}</a>
                         </li>
 
                         {% endblock %}

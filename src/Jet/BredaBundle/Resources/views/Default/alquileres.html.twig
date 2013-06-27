@@ -4,20 +4,20 @@
 <div class="row" style="margin-top: 50px">
 	<div class="span4 offset1">
 		<div class="btn-group" data-toggle="buttons-radio">
-		  <a href="{{ path('alquileres',{'order':order,'type':'nave'}) }}" class="btn{% if type == 'nave' %} active{% endif%}"><b class="icon icon-inbox"></b> {% trans %}Naves{% endtrans %}</a>
-		  <a href="{{ path('alquileres',{'order':order,'type':'despacho'}) }}" class="btn{% if type == 'despacho' %} active{% endif%}"><b class="icon icon-briefcase"></b> {% trans %}Despachos{% endtrans %}</a>
-		  <a href="{{ path('alquileres',{'order':order,'type':'piso'}) }}" class="btn{% if type == 'piso' %} active{% endif%}"><b class="icon icon-home"></b> {% trans %}Pisos{% endtrans %}</a>
+		  <a href="{{ path('alquileres',{'order':order,'type':'nave'}) }}" class="btn{% if type == 'nave' %} active{% endif%}"><b class="icon icon-inbox"></b> {% trans %}alquileres.navigator.naves{% endtrans %}</a>
+		  <a href="{{ path('alquileres',{'order':order,'type':'despacho'}) }}" class="btn{% if type == 'despacho' %} active{% endif%}"><b class="icon icon-briefcase"></b> {% trans %}alquileres.navigator.despachos{% endtrans %}</a>
+		  <a href="{{ path('alquileres',{'order':order,'type':'piso'}) }}" class="btn{% if type == 'piso' %} active{% endif%}"><b class="icon icon-home"></b> {% trans %}alquileres.navigator.pisos{% endtrans %}</a>
 		</div>
 	</div>
 	<div class="span3 offset4">
 	<div class="btn-group">
   <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-    Orden
+        {%trans%}alquileres.navigator.orden{%endtrans%}
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu">
-    <li><a href="{{ path('alquileres',{'order':'DESC','type':type}) }}">{% trans %}De mayor a menor Superficie{% endtrans %}</a></li>
-    <li><a href="{{ path('alquileres',{'order':'ASC','type':type}) }}">{% trans %}De menor a mayor Superficie{% endtrans %}</a></li>
+    <li><a href="{{ path('alquileres',{'order':'DESC','type':type}) }}">{% trans %}alquileres.navigator.orden1{% endtrans %}</a></li>
+    <li><a href="{{ path('alquileres',{'order':'ASC','type':type}) }}">{% trans %}alquileres.navigator.orden2{% endtrans %}</a></li>
   </ul>
 </div>
 
@@ -39,7 +39,7 @@
                                 <h6>{% trans %}No foto{% endtrans %}</h6>
                             {% endif %}
                         </a><br>
-                        <b> {% trans %}Superficie{% endtrans %}:</b> {{ entity.superficie }} m<sup>2</sup>
+                        <b> {% trans %}alquileres.alquiler.superficie{% endtrans %}:</b> {{ entity.superficie }} m<sup>2</sup>
 
 		</div>
 		<div class="content">
@@ -53,15 +53,15 @@
 		</div>
     <div id="map_canvas{{ entity.id }}" style="margin-left: 30px"></div>
 		<div style="clear:both"></div>
-		<a class="btn pull-right btn-primary" href="{{ path('alquiler', {'id': entity.id}) }}">{% trans %}Ampliar detalles{% endtrans %}</a>
+		<a class="btn pull-right btn-primary" href="{{ path('alquiler', {'id': entity.id}) }}">{% trans %}alquileres.alquiler.more{% endtrans %}</a>
 	</div><br><br>
 	{% else %}
 	<form class="form-horizontal">
 
     <fieldset>
-        <legend>{% trans %}Sección en Obras!{% endtrans %}</legend>
-        <h4>{% trans %}Actualmente, estamos trabajando para actualizar el contenido de esta sección, si tienes alguna duda o sugerencia, contacta con nosotros a través de la{% endtrans %} <a href="{{ path('contacto') }}">{% trans %}página de contacto{% endtrans %}</a>.</h4>
-        <h5>{% trans %}Gracias{% endtrans %}.</h5>
+        <legend>{% trans %}alquileres.alquiler.obras.title{% endtrans %}</legend>
+        <h4>{% trans %}alquileres.alquiler.obras.content{% endtrans %} <a href="{{ path('contacto') }}">{% trans %}alquileres.alquiler.obras.content2{% endtrans %}</a>.</h4>
+        <h5>{% trans %}alquileres.ty{% endtrans %}.</h5>
     </fieldset>
 <form>
 	{% endfor %}

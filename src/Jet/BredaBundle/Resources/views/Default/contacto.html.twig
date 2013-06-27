@@ -7,9 +7,9 @@
 <form class="form-horizontal" style="margin-top: 50px">
 
     <fieldset>
-        <legend>{% trans %}Formulario de contacto{% endtrans %}</legend>
-        <h4>{% trans %}Se ha enviado un email con tu información de contacto a{% endtrans %} <a href="mailto:info@construccionesbreda.com">info@construccionesbreda.com</a>, {% trans %}nos pondremos en contacto contigo para ofrecerte más información lo antes posible{% endtrans %}.</h4>
-        <h5>{% trans %}Gracias{% endtrans %}.</h5>
+        <legend>{% trans %}contact.todoOk.1{% endtrans %}</legend>
+        <h4>{% trans %}contact.todoOk.2{% endtrans %} <a href="mailto:info@construccionesbreda.com">info@construccionesbreda.com</a>, {% trans %}contact.todoOk.3{% endtrans %}.</h4>
+        <h5>{% trans %}contact.todoOk.4{% endtrans %}.</h5>
     </fieldset>
 <form>
 {% else %}
@@ -18,38 +18,38 @@
     <fieldset>
         <legend>{% trans %}Formulario de contacto{% endtrans %}</legend>
         <div class="control-group">
-            <label class="control-label" for="nombre">{% trans %}Persona de Contacto{% endtrans %}</label>
+            <label class="control-label" for="nombre">{% trans %}contact.form.block1.title{% endtrans %}</label>
 
             <div class="controls">
                 {{form_widget(form.persona)}}
 
-                <p class="help-block"><i>{% trans %}Obligatorio{% endtrans %}</i> ({% trans %}Nombre y Apellidos{% endtrans %})</p>
+                <p class="help-block"><i>{% trans %}contact.form.block1.helper.obligatorio{% endtrans %}</i> ({% trans %}contact.form.block1.helper2{% endtrans %})</p>
             </div>
         </div>
 
         <div class="control-group">
-            <label class="control-label" for="email">{% trans %}Correo electrónico{% endtrans %}</label>
+            <label class="control-label" for="email">{% trans %}contact.form.block2.title{% endtrans %}</label>
 
             <div class="controls">
                 {{form_widget(form.email)}}
 
-                <p class="help-block"><i>{% trans %}Obligatorio{% endtrans %}</i></p>
+                <p class="help-block"><i>{% trans %}contact.form.block1.helper.obligatorio{% endtrans %}</i></p>
             </div>
         </div>
 
         <div class="control-group">
-            <label class="control-label" for="nombre">{% trans %}Teléfono de contacto{% endtrans %}</label>
+            <label class="control-label" for="nombre">{% trans %}contact.form.block3.title{% endtrans %}</label>
 
             <div class="controls">
                 {{form_widget(form.telefono)}}
 
-                <p class="help-block"><i>{% trans %}Obligatorio{% endtrans %}</i></p>
+                <p class="help-block"><i>{% trans %}contact.form.block1.helper.obligatorio{% endtrans %}</i></p>
             </div>
         </div>
 
 
         <div class="control-group">
-            <label class="control-label" for="textarea">{% trans %}Consulta{% endtrans %}</label>
+            <label class="control-label" for="textarea">{% trans %}contact.form.block4.title{% endtrans %}</label>
 
             <div class="controls">
                 {{form_widget(form.consulta)}}
@@ -58,7 +58,7 @@
         <div class="control-group">
             <label class="control-label" for="check"></label>
             <div class="controls">
-                <input type="checkbox" id="formCheckbox" value="true"> <span>{% trans %}He leído y acepto los{% endtrans %} <a target="_blank" href="{{ asset('bundles/jetbreda/terms_of_use.pdf') }}">{% trans %}Términos y Condiciones{% endtrans %}</a>.</span>
+                <input type="checkbox" id="formCheckbox" value="true"> <span>{% trans %}contact.terms.1{% endtrans %} <a target="_blank" href="{{ asset('bundles/jetbreda/terms_of_use.pdf') }}">{% trans %}contact.terms.2{% endtrans %}</a>.</span>
             </div>
         </div>
         <script>
@@ -74,7 +74,7 @@
         </script>
         {{form_rest(form)}}
         <div class="form-actions">
-            <button id="submitButton" type="submit" disabled="disabled" class="btn btn-primary">{% trans %}Enviar formulario{% endtrans %}</button>
+            <button id="submitButton" type="submit" disabled="disabled" class="btn btn-primary">{% trans %}contact.form.submit{% endtrans %}</button>
 
         </div>
     </fieldset>
@@ -83,16 +83,15 @@
 </div>
 <div class="span2" style="padding: 30px; padding-top: 50px">
 	    		<img src="{{ asset('bundles/jetbreda/img/breda.png') }}"><br>
-<b>{% trans %}Dirección{% endtrans %}:</b>
-<p class="pull-right">C/ Riera Sant Miquel nº 3 s/atico 1ª</p>
+<b>{% trans %}contact.info.direction.title{% endtrans %}:</b>
+<p class="pull-right">{%trans%}contact.info.direction.content{%endtrans%}</p>
 <div style="clear:both; padding-top: 10px;"></div>
-<b>{% trans %}Horario comercial{% endtrans %}:</b> 
-<p class="pull-right">{% trans %}9:00h - 15:00h{% endtrans %}</p>
+<b>{% trans %}contact.info.horary.title{% endtrans %}:</b> 
+<p class="pull-right">{% trans %}contact.info.horary.content{% endtrans %}</p>
 <div style="clear:both; padding-top: 10px;"></div>
-<b>{% trans %}Telefono Fijo{% endtrans %}:</b> 
-<p class="pull-right">+34 93 218 00 40</p>
-<b>{% trans %}Fax{% endtrans %}:</b> 
-<p class="pull-right">+34 93 218 00 41</p>
+<b>{% trans %}contact.info.phone.title{% endtrans %}:</b> 
+<p class="pull-right">T: +34 93 218 00 40</p> 
+<p class="pull-right">F: +34 93 218 00 41</p>
 <div style="clear:both; padding-top: 10px;"></div>
 </div>
 </div>

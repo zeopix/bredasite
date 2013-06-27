@@ -106,8 +106,9 @@ class DefaultController extends Controller
      * @Template()
      */
     public function nosotrosAction()
-    {
-        return array();
+    {       
+        $clientes = $this->getDoctrine()->getEntityManager()->getRepository('JetBredaBundle:Clientes')->findAll();
+        return array('clientes' => $clientes);
     }
 
 

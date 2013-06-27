@@ -93,9 +93,9 @@
 
         <div class="span2" style="padding: 20px">
 
-            <h2>{% trans %}Naves, oficinas y pisos{% endtrans %}</h2>
+            <h2>{% trans %}index.begin.title{% endtrans %}</h2>
 
-            <p class="story" style="color: white">{% trans %}Nuestros productos se sitúan principalmente en el baix llobregat y alrededores.{% endtrans %}</p>
+            <p class="story" style="color: white">{% trans %}index.begin.subtitle{% endtrans %}</p>
 
 
         </div>
@@ -104,26 +104,26 @@
     <div class="row mkt" style="margin-top: 40px">
         <div class="span1" style="padding-top: 35px"><p style="font-size:50px" class="icon-inbox"></p></div>
         <div class="span3">
-            <h3>{% trans %}Naves{% endtrans %}</h3>
+            <h3>{% trans %}index.block1.title{% endtrans %}</h3>
             <hr>
             <p style="line-height: 30px">
-                {% trans %}Naves en el Baix Llobregat, de 500m<sup>2</sup> a 5500m<sup>2</sup>{% endtrans %}
+                {% trans %}index.block1.subtitle{% endtrans %}
             </p>
         </div>
         <div class="span1" style="padding-top: 35px;"><p style="font-size:50px" class="icon-briefcase"></p></div>
         <div class="span3">
-            <h3>{% trans %}Oficinas{% endtrans %}</h3>
+            <h3>{% trans %}index.block2.title{% endtrans %}</h3>
             <hr>
             <p style="line-height: 30px">
-                {% trans %}Oficinas en Barcelona, de 100m<sup>2</sup> a 150m<sup>2</sup>{% endtrans %}
+                {% trans %}index.block2.subtitle{% endtrans %}
             </p>
         </div>
         <div class="span1" style="padding-top: 35px"><p style="font-size:50px" class="icon-home"></p></div>
         <div class="span3" >
-            <h3>{% trans %}Pisos{% endtrans %}</h3>
+            <h3>{% trans %}index.block3.title{% endtrans %}</h3>
             <hr>
             <p style="line-height: 30px">
-                {% trans %}Pisos en Barcelona, de 70m<sup>2</sup> a 150m<sup>2</sup>{% endtrans %}
+                {% trans %}index.block3.subtitle{% endtrans %}
             </p>
         </div>
     </div>
@@ -135,7 +135,7 @@
 {% block container %}
     <br><br><br>
 
-    <h2>{% trans %}Productos destacados{% endtrans %}</h2>
+    <h2>{% trans %}index.products.title{% endtrans %}</h2>
     <hr>
     <div class="row">
         {% for entity in destacados %}
@@ -166,7 +166,7 @@
 
 
         {% else %}
-            <b>No hay productos descatados</b>
+            <b>{%trans%}index.products.subtitle{%endtrans%}</b>
         {% endfor %}
     </div>
     <div style="clear:both; margin-bottom:30px"></div>

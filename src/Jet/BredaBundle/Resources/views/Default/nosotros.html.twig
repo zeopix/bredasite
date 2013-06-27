@@ -3,26 +3,30 @@
 {% block container %}
 <div class="row about-us">
 <div class="span6 offset1 about" style="padding-top: 50px">
-<h3>{% trans %}Sobre Nosotros{% endtrans %}</h3>
+<h3>{% trans %}nosotros.title{% endtrans %}</h3>
 <hr>
-<b>Construcciones Breda S.L.</b>, {% trans %}fundada en 1989 que en la actualidad se dedica a{% endtrans %}:
+<b>{%trans%}nosotros.subtitle1{%endtrans%}</b>, {% trans %}nosotros.subtitle2{% endtrans %}:
 <br>
 <ul>
-    <li>{% trans %}La promoción y alquiler de naves industriales en el Baix Llobregat, en poligonos industriales muy bien comunicados.{% endtrans %}<br>{% trans %} Nuestras naves tienen distintas superficies: desde 500 a 5500m2, incluyendo planta baja y altillo. La altura mínima es de 10m{% endtrans %}.
+    <li>{% trans %}nosotros.content1.1{% endtrans %}<br>{% trans %}nosotros.content1.2{% endtrans %}.
     </li>
     <li>
-        {% trans %}El alquiler de oficinas comerciales en zona de negocios de Barcelona. Superficies de 105 a 130m2 con plaza de parking.{% endtrans %}
+        {% trans %}nosotros.content2{% endtrans %}
     </li>
     <li>
-       {% trans %} La rehabilitación y venta de pisos situados en el casco antiguo de Sarriá (Barcelona){% endtrans %}
+       {% trans %}nosotros.content3{% endtrans %}
     </li>
 </ul>
 
 </div>
 <div class="span3 clients" style="padding: 30px; padding-top: 50px">
-    <h3>{% trans %}Nuestros Clientes{% endtrans %}</h3>
+    <h3>{% trans %}nosotros.ourclients{% endtrans %}</h3>
     <hr>
         <ul>
+            {%for c in clientes %}
+            <li>{{c.nombre}}</li>
+            {%endfor%}
+            {#
             <li>Cantalou, S.A.</li>
             <li>Geze Iberia, S.R.L.</li>
             <li>Hill-Rom Iberia, S.L.</li>
@@ -32,6 +36,7 @@
             <li>Serunion, S.A.</li>
             <li>Kannegiesser España, S.L.</li>
             <li>FBO Organisation, S.L.</li>
+            #}
         </ul>
 </div>
 </div>
