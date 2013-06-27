@@ -1,0 +1,40 @@
+{% extends 'JetBredaBundle::layoutAdmin.html.twig'%}
+
+{% set active = "clientes"%}
+
+{% block container%}
+<h1>Clientes list</h1>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+
+            <th>Nombre</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+           
+            <td>{{ entity.nombre }}</td>
+            <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('admin_clientes_show', { 'id': entity.id }) }}">Ver más</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('admin_clientes_edit', { 'id': entity.id }) }}">Editar</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+        <a href="{{ path('admin_clientes_new') }}" class="btn btn-success">
+           Añadir un cliente
+        </a>
+
+{%endblock%}

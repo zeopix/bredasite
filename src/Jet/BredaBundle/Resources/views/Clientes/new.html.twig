@@ -1,0 +1,20 @@
+{% extends 'JetBredaBundle::layoutAdmin.html.twig'%}
+
+{% set active = "clientes"%}
+
+{% block container%}
+<h1>Añadir un cliente</h1>
+
+<form action="{{ path('admin_clientes_create') }}" method="post" {{ form_enctype(form) }}>
+    {{ form_widget(form) }}
+    <p>
+        <button type="submit" class="btn btn-success">Añadir</button>
+    </p>
+</form>
+
+
+        <a href="{{ path('admin_clientes') }}" class="btn">
+            Volver a la lista
+        </a>
+
+{%endblock%}

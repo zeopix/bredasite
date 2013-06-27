@@ -1,0 +1,35 @@
+{% extends 'JetBredaBundle::layoutAdmin.html.twig'%}
+
+{% set active = "clientes"%}
+
+{% block container%}
+<h1>Clientes</h1>
+
+<table class="table table-stripped">
+    <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ entity.id }}</td>
+        </tr>
+        <tr>
+            <th>Nombre</th>
+            <td>{{ entity.nombre }}</td>
+        </tr>
+    </tbody>
+</table>
+
+
+        <a href="{{ path('admin_clientes') }}" class="btn">
+            Volver a la lista
+        </a>
+        <br><br>
+        <a href="{{ path('admin_clientes_edit', { 'id': entity.id }) }}" class="btn btn-warning">
+            Editar
+        </a>
+  <br><br>
+        <form action="{{ path('admin_clientes_delete', { 'id': entity.id }) }}" method="post">
+            {{ form_widget(delete_form) }}
+            <button type="submit" class="btn btn-danger">Eliminar</button>
+        </form>
+
+{%endblock%}
