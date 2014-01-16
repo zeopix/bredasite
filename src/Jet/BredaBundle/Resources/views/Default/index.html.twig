@@ -139,36 +139,58 @@
     <h2>{% trans %}index.products.title{% endtrans %}</h2>
     <hr>
     <div class="row">
+    <div class="span5 offset1">
         {% for entity in destacados %}
+            {% if loop.index % 2 == 1 %}
 
-
-            <div class="span5 grey-box" style="margin-left: 80px">
-                <h3 style="padding: 8px;">{{ entity.titulo }}</h3>
-                <hr style="margin: 0px;">
-                <div class="span2" style="margin: 5px;">
-                    <a class="thumbnail" href="{{ path('alquiler', {'id': entity.id}) }}">
+            <div class="span5">
+                <div style="">
+                    <a class="thumbnail" href="{{ path('alquiler', {'id': entity.id}) }}" style="">
+                        <div style="font-size: 22px; margin: 6px; clear:both">{{entity.titulo}}</div>
                         {% if entity.fotos is not empty %}
                             <img src="{{ asset(entity.fotos.0.webPath) }}" width="100%">
                         {% else %}
                             <h6>{% trans %}No foto{% endtrans %}</h6>
                         {% endif %}
+                        <div style="padding: 10px;">
+                            {{ entity.descipcion|raw }}
+                        </div>
                     </a>
-                    <a class="btn btn-block btn-primary btn-small" href="{{ path('alquiler', {'id': entity.id}) }}"><b
-                            class="icon icon-search"></b> Ver</a>
 
-
-                </div>
-                <div class="span2" style="width: 220px; overflow:hidden; height: 120px">
-                    {{ entity.descipcion|raw }}
                 </div>
                 <div style="clear:both"></div>
+                <br>
             </div>
-
-
-
-        {% else %}
-            <b>{%trans%}index.products.subtitle{%endtrans%}</b>
+            {% endif %}
         {% endfor %}
+        </div>
+        <div class="span5">
+         {% for entity in destacados %}
+            {% if loop.index % 2 == 0 %}
+
+            <div class="span5">
+                <div style="">
+                    <a class="thumbnail" href="{{ path('alquiler', {'id': entity.id}) }}" style="">
+                        <div style="font-size: 22px; margin: 6px; clear:both">{{entity.titulo}}</div>
+                        {% if entity.fotos is not empty %}
+                            <img src="{{ asset(entity.fotos.0.webPath) }}" width="100%">
+                        {% else %}
+                            <h6>{% trans %}No foto{% endtrans %}</h6>
+                        {% endif %}
+                        <div style="padding: 10px;">
+                            {{ entity.descipcion|raw }}
+                        </div>
+                    </a>
+
+                </div>
+                <div style="clear:both"></div>
+                <br>
+            </div>
+            {% endif %}
+            
+        {% endfor %}
+        </div>
+      
     </div>
     <div style="clear:both; margin-bottom:30px"></div>
 

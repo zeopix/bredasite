@@ -43,6 +43,8 @@ contact.form.block3.title: 'Teléfono de contacto'
 contact.form.block4.title: 'Consulta'
 contact.terms.1: "He leído y acepto los"
 contact.terms.2: 'Términos y Condiciones'
+contact.terms.3: 'Política de privacidad'
+contact.terms.btw: ' y nuestra '
 contact.form.submit: 'Enviar formulario'
 contact.info.direction.title: 'Dirección'
 contact.info.direction.content: 'C/ Riera Sant Miquel nº 3 s/atico 1ª'
