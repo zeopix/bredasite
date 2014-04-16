@@ -5,9 +5,20 @@ namespace Jet\BredaBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Cookie;
 
 class DefaultController extends Controller
 {
+
+        /**
+     * @Route("/cookies/{_locale}", name="cookies", defaults={"_locale"="es"})
+     * @Template()
+     */
+    public function cookiesAction()
+    {
+            return array();
+    }
     /**
      * @Route("/{_locale}", name="index", defaults={"_locale"="es"})
      * @Template()
@@ -24,7 +35,24 @@ class DefaultController extends Controller
 
         $slider = $em->getRepository('JetBredaBundle:Slider')->findAll();
 
-        return array('destacados' => $destacados, 'slider' => $slider);
+         //Coockie to store the coockie message
+        $request = $this->get('request');
+        $cookies = $request->cookies;
+
+
+        if (!$cookies->has('COOCKIE_ACCEPTED')) {
+            //genero la coockie
+            $cookie = new Cookie('COOCKIE_ACCEPTED', 1, (time() + 3600 * 24 * 7), '/');
+
+            $response = new Response($this->renderView('JetBredaBundle:Default:index.html.twig', array('destacados' => $destacados, 'slider' => $slider, "cookies" => true)));
+            $response->headers->setCookie($cookie);
+            //$response->send();
+
+            return $response;
+
+        }
+
+        return array('destacados' => $destacados, 'slider' => $slider, "cookies" => false);
     }
 
     /**

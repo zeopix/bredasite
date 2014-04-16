@@ -178,3 +178,14 @@
 {% block background %}
     <div class="background"></div>
 {% endblock %}
+
+{%block cookies%}
+{%if cookies == true %}
+    <div class="container well">
+    <div class="navbar">
+       <h2>Uso de cookies</h2>
+<p>contruccionesbreda.com utiliza cookies tratando de ofrecerle la mejor experiencia de usuario. Si continúa navegando está dando su consentimiento para la aceptación de las mencionadas cookies y la aceptación de nuestra política de <a href="{{path("cookies")}}">cookies</a>.</p>
+    </div>
+</div>
+{%endif%}
+{%endblock%}
