@@ -58,12 +58,10 @@
 </head>
 
 <body>
-
-{%block cookies%}{%endblock%}
+{%block cookies%}{%endblock%}    
 {% block background %}
 {% endblock %}
-
-<div class="clear:both">
+<div class="container">
     <a href="{{ path('index') }}"><img src="{{ asset('bundles/jetbreda/assets/logo_ltd.png')}}" width="300px"></a>
 
     <div class="navbar">
@@ -112,7 +110,9 @@
 
     <p>Construcciones Breda S.L.</p>
 
-    <p class="pull-right">Powered by <a href="http://www.varavan.com" target="_blank">varavan.es</a>
+    <p class="pull-right">
+    <a target="_blank" href="{{ asset('bundles/jetbreda/terms_of_use.pdf') }}">{% trans %}contact.terms.2{% endtrans %}</a> - <a target="_blank" href="{{ asset('bundles/jetbreda/privacy.pdf') }}">{% trans %}contact.terms.3{% endtrans %}</a></p>
+    <p>Powered by <a href="http://varavan.com">varavan.com</a></p>
 </footer>
 
 
